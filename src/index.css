@@ -32,8 +32,58 @@
   font-display: swap;
 }
 
+:root {
+  font-family: "Vazirmatn", sans-serif;
+
+  --background: #f8fafc;
+  --foreground: #0f172a;
+
+  --surface: #ffffff;
+  --surface-hover: #f1f5f9;
+
+  --border: #e2e8f0;
+
+  --muted: #64748b;
+  --muted-foreground: #94a3b8;
+
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+
+  --success: #22c55e;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+}
+
+[data-theme="dark"] {
+  --background: #09090b;
+  --foreground: #f4f4f5;
+
+  --surface: #18181b;
+  --surface-hover: #27272a;
+
+  --border: #27272a;
+
+  --muted: #a1a1aa;
+  --muted-foreground: #71717a;
+
+  --primary: #818cf8;
+  --primary-hover: #6366f1;
+
+  --success: #4ade80;
+  --warning: #fbbf24;
+  --danger: #f87171;
+}
+
 html,
 body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
   font-family: "Vazirmatn", sans-serif;
 }
 
