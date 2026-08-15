@@ -1,57 +1,68 @@
-import { useTheme } from "./contexts/ThemeContext"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import DashboardLayout from "./layouts/DashboardLayout"
+
+import LandingPage from "./pages/LandingPage"
+import LoginPage from "./pages/LoginPage"
+import RegisterPage from "./pages/RegisterPage"
+import ForgotPasswordPage from "./pages/ForgotPasswordPage"
+
+import DashboardPage from "./pages/dashboard/DashboardPage"
+import LinksPage from "./pages/dashboard/LinksPage"
+import CreateLinkPage from "./pages/dashboard/CreateLinkPage"
+import LinkDetailsPage from "./pages/dashboard/LinkDetailsPage"
+import LinkAnalyticsPage from "./pages/dashboard/LinkAnalyticsPage"
+import ApiPage from "./pages/dashboard/ApiPage"
+import SettingsPage from "./pages/dashboard/SettingsPage"
 
 function App() {
-  const { theme, setTheme } = useTheme()
-
   return (
-    <main className="min-h-screen p-10">
-      <div className="mx-auto max-w-4xl">
-        <h1 className="text-4xl font-bold">
-          Shortify
-        </h1>
+    <BrowserRouter>
+      <Routes>
 
-        <p className="mt-4 text-[var(--muted)]">
-          کوتاه‌کننده لینک هوشمند
-        </p>
+        <Route path="/" element={<LandingPage />} />
 
-        <div className="mt-8 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
-          <h2 className="text-xl font-semibold">
-            تست Theme
-          </h2>
+        <Route path="/login" element={<LoginPage />} />
 
-          <div className="mt-4 flex gap-3">
+        <Route path="/register" element={<RegisterPage />} />
 
-            <button
-              onClick={() => setTheme("light")}
-              className="rounded-xl border border-[var(--border)] px-4 py-2"
-            >
-              روشن
-            </button>
+        <Route
+          path="/forgot-password"
+          element={<ForgotPasswordPage />}
+        />
 
-            <button
-              onClick={() => setTheme("dark")}
-              className="rounded-xl border border-[var(--border)] px-4 py-2"
-            >
-              تاریک
-            </button>
+        <Route path="/dashboard" element={<DashboardLayout />}>
+          <Route index element={<DashboardPage />} />
 
-            <button
-              onClick={() => setTheme("system")}
-              className="rounded-xl border border-[var(--border)] px-4 py-2"
-            >
-              سیستم
-            </button>
+          <Route path="links" element={<LinksPage />} />
 
-          </div>
+          <Route
+            path="links/new"
+            element={<CreateLinkPage />}
+          />
 
-          <p className="mt-4 text-sm text-[var(--muted)]">
-            حالت فعلی: {theme}
-          </p>
+          <Route
+            path="links/:id"
+            element={<LinkDetailsPage />}
+          />
 
-        </div>
+          <Route
+            path="links/:id/analytics"
+            element={<LinkAnalyticsPage />}
+          />
 
-      </div>
-    </main>
+          <Route
+            path="api"
+            element={<ApiPage />}
+          />
+
+          <Route
+            path="settings"
+            element={<SettingsPage />}
+          />
+        </Route>
+
+      </Routes>
+    </BrowserRouter>
   )
 }
 
