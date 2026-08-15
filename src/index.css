@@ -84,6 +84,7 @@ html {
   min-width: 320px;
   min-height: 100%;
   background-color: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
