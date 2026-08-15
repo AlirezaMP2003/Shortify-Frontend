@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+/* Fonts */
+
 @font-face {
   font-family: "Vazirmatn";
   src: url("./assets/fonts/Vazir.woff2") format("woff2");
@@ -31,6 +33,8 @@
   font-style: normal;
   font-display: swap;
 }
+
+/* Theme */
 
 :root {
   font-family: "Vazirmatn", sans-serif;
@@ -74,16 +78,80 @@
   --danger: #f87171;
 }
 
-html,
-body {
-  margin: 0;
+/* Base */
+
+html {
   min-width: 320px;
   min-height: 100%;
+  background-color: var(--background);
 }
 
 body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+
   background-color: var(--background);
   color: var(--foreground);
+
   font-family: "Vazirmatn", sans-serif;
+
+  direction: rtl;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  transition:
+    background-color 200ms ease,
+    color 200ms ease;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Selection */
+
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--background);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
 }
 
