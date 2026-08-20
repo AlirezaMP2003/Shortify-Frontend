@@ -11,6 +11,7 @@ import LinksPage from "./pages/dashboard/LinksPage"
 import CreateLinkPage from "./pages/dashboard/CreateLinkPage"
 import LinkDetailsPage from "./pages/dashboard/LinkDetailsPage"
 import LinkAnalyticsPage from "./pages/dashboard/LinkAnalyticsPage"
+import EditLinkPage from "./pages/dashboard/EditLinkPage"
 import ApiPage from "./pages/dashboard/ApiPage"
 import SettingsPage from "./pages/dashboard/SettingsPage"
 
@@ -48,6 +49,11 @@ function App() {
           <Route
             path="links/:id/analytics"
             element={<LinkAnalyticsPage />}
+          />
+
+          <Route
+            path="links/:id/edit"
+            element={<EditLinkPage />}
           />
 
           <Route
