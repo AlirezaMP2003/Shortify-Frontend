@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom"
+
 import DashboardLayout from "./layouts/DashboardLayout"
 
 import LandingPage from "./pages/LandingPage"
@@ -15,60 +16,97 @@ import EditLinkPage from "./pages/dashboard/EditLinkPage"
 import ApiPage from "./pages/dashboard/ApiPage"
 import SettingsPage from "./pages/dashboard/SettingsPage"
 
+import ProtectedRoute from "./routes/ProtectedRoute"
+import GuestRoute from "./routes/GuestRoute"
+import { AuthProvider } from "./contexts/AuthContext"
+
 function App() {
   return (
-    <BrowserRouter>
-      <Routes>
+    <AuthProvider>
+      <BrowserRouter>
+        <Routes>
 
-        <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LandingPage />} />
 
-        <Route path="/login" element={<LoginPage />} />
+          {/* Guest Routes */}
 
-        <Route path="/register" element={<RegisterPage />} />
+          <Route element={<GuestRoute />}>
 
-        <Route
-          path="/forgot-password"
-          element={<ForgotPasswordPage />}
-        />
+            <Route
+              path="/login"
+              element={<LoginPage />}
+            />
 
-        <Route path="/dashboard" element={<DashboardLayout />}>
-          <Route index element={<DashboardPage />} />
+            <Route
+              path="/register"
+              element={<RegisterPage />}
+            />
 
-          <Route path="links" element={<LinksPage />} />
+          </Route>
 
-          <Route
-            path="links/new"
-            element={<CreateLinkPage />}
-          />
-
-          <Route
-            path="links/:id"
-            element={<LinkDetailsPage />}
-          />
 
           <Route
-            path="links/:id/analytics"
-            element={<LinkAnalyticsPage />}
+            path="/forgot-password"
+            element={<ForgotPasswordPage />}
           />
 
-          <Route
-            path="links/:id/edit"
-            element={<EditLinkPage />}
-          />
 
-          <Route
-            path="api"
-            element={<ApiPage />}
-          />
+          {/* Protected Routes */}
 
-          <Route
-            path="settings"
-            element={<SettingsPage />}
-          />
-        </Route>
+          <Route element={<ProtectedRoute />}>
 
-      </Routes>
-    </BrowserRouter>
+            <Route
+              path="/dashboard"
+              element={<DashboardLayout />}
+            >
+
+              <Route
+                index
+                element={<DashboardPage />}
+              />
+
+              <Route
+                path="links"
+                element={<LinksPage />}
+              />
+
+              <Route
+                path="links/new"
+                element={<CreateLinkPage />}
+              />
+
+              <Route
+                path="links/:id"
+                element={<LinkDetailsPage />}
+              />
+
+              <Route
+                path="links/:id/analytics"
+                element={<LinkAnalyticsPage />}
+              />
+
+              <Route
+                path="links/:id/edit"
+                element={<EditLinkPage />}
+              />
+
+              <Route
+                path="api"
+                element={<ApiPage />}
+              />
+
+              <Route
+                path="settings"
+                element={<SettingsPage />}
+              />
+
+            </Route>
+
+          </Route>
+
+        </Routes>
+      </BrowserRouter>
+    </AuthProvider>
   )
 }
 

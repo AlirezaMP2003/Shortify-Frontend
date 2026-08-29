@@ -9,8 +9,79 @@ import { useState } from "react"
 import { Link } from "react-router-dom"
 import AuthLayout from "../components/auth/AuthLayout"
 
+import Cookies from "js-cookie"
+import { useNavigate } from "react-router-dom"
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+
 function LoginPage() {
   const [showPassword, setShowPassword] = useState(false)
+
+  const navigate = useNavigate()
+
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState("")
+
+  const handleLogin = async (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault()
+
+    setError("")
+
+    if (!email.trim() || !password) {
+      setError("ایمیل و رمز عبور را وارد کنید.")
+      return
+    }
+
+    try {
+      setLoading(true)
+
+      const response = await fetch(
+        `${API_BASE_URL}/api/v1/auth/login`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          credentials: "include",
+          body: JSON.stringify({
+            email: email.trim(),
+            password,
+          }),
+        }
+      )
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(
+          data.detail || "ورود با خطا مواجه شد."
+        )
+      }
+
+      Cookies.set(
+        "access_token",
+        data.access_token,
+        {
+          expires: 7,
+          sameSite: "lax",
+        }
+      )
+
+      navigate("/dashboard")
+    } catch (error) {
+      if (error instanceof Error) {
+        setError(error.message)
+      } else {
+        setError("خطایی در ورود رخ داد.")
+      }
+    } finally {
+      setLoading(false)
+    }
+  }
 
   return (
     <AuthLayout>
@@ -42,7 +113,7 @@ function LoginPage() {
 
           {/* Form */}
 
-          <form className="mt-8 space-y-5">
+          <form onSubmit={handleLogin} className="mt-8 space-y-5">
 
             {/* Email */}
 
@@ -65,6 +136,8 @@ function LoginPage() {
                 <input
                   id="email"
                   type="email"
+                  value={email}
+                  onChange={(event) => setEmail(event.target.value)}
                   placeholder="example@email.com"
                   className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-11 text-sm outline-none transition-all placeholder:text-[var(--muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10"
                 />
@@ -107,6 +180,8 @@ function LoginPage() {
                 <input
                   id="password"
                   type={showPassword ? "text" : "password"}
+                  value={password}
+                  onChange={(event) => setPassword(event.target.value)}
                   placeholder="رمز عبور خود را وارد کنید"
                   className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-11 pl-12 text-sm outline-none transition-all placeholder:text-[var(--muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10"
                 />
@@ -152,17 +227,23 @@ function LoginPage() {
 
             </div>
 
+            {error && (
+              <p className="rounded-xl bg-red-500/10 px-4 py-3 text-sm text-red-500">
+                {error}
+              </p>
+            )}
+
 
             {/* Submit */}
 
             <button
               type="submit"
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)]"
+              disabled={loading}
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)] disabled:cursor-not-allowed disabled:opacity-50"
             >
-              ورود
+              {loading ? "در حال ورود..." : "ورود"}
 
-              <ArrowLeft size={17} />
-
+              {!loading && <ArrowLeft size={17} />}
             </button>
 
           </form>

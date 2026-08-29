@@ -12,7 +12,7 @@ import { Link, useNavigate } from "react-router-dom"
 import Cookies from "js-cookie"
 import AuthLayout from "../components/auth/AuthLayout"
 
-const API_BASE_URL = "http://localhost:8000"
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 function RegisterPage() {
   const navigate = useNavigate()
@@ -72,6 +72,7 @@ function RegisterPage() {
           headers: {
             "Content-Type": "application/json",
           },
+          credentials: "include",
           body: JSON.stringify({
             name: name.trim(),
             email: email.trim(),
