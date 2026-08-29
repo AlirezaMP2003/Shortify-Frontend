@@ -15,6 +15,7 @@ import LinkAnalyticsPage from "./pages/dashboard/LinkAnalyticsPage"
 import EditLinkPage from "./pages/dashboard/EditLinkPage"
 import ApiPage from "./pages/dashboard/ApiPage"
 import SettingsPage from "./pages/dashboard/SettingsPage"
+import ResetPasswordPage from "./pages/ResetPasswordPage"
 
 import ProtectedRoute from "./routes/ProtectedRoute"
 import GuestRoute from "./routes/GuestRoute"
@@ -48,6 +49,11 @@ function App() {
           <Route
             path="/forgot-password"
             element={<ForgotPasswordPage />}
+          />
+
+          <Route
+            path="/reset-password"
+            element={<ResetPasswordPage />}
           />
 
 

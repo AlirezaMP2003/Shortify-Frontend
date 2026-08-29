@@ -11,13 +11,16 @@ import AuthLayout from "../components/auth/AuthLayout"
 
 import Cookies from "js-cookie"
 import { useNavigate } from "react-router-dom"
+import { useAuth } from "../contexts/AuthContext"
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 function LoginPage() {
-  const [showPassword, setShowPassword] = useState(false)
-
   const navigate = useNavigate()
+
+  const { checkAuth } = useAuth()
+
+  const [showPassword, setShowPassword] = useState(false)
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
@@ -71,7 +74,9 @@ function LoginPage() {
         }
       )
 
-      navigate("/dashboard")
+      await checkAuth()
+      navigate("/dashboard", { replace: true })
+
     } catch (error) {
       if (error instanceof Error) {
         setError(error.message)
@@ -90,13 +95,13 @@ function LoginPage() {
 
         {/* Card */}
 
-        <div className="rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl shadow-black/5 sm:p-8">
+        <div className="rounded-3xl border border-(--border) bg-(--surface) p-6 shadow-2xl shadow-black/5 sm:p-8">
 
           {/* Header */}
 
           <div className="text-center">
 
-            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-(--primary)/10 text-(--primary)">
               <LockKeyhole size={25} />
             </div>
 
@@ -104,7 +109,7 @@ function LoginPage() {
               ورود به حساب
             </h1>
 
-            <p className="mt-2 text-sm leading-7 text-[var(--muted)]">
+            <p className="mt-2 text-sm leading-7 text-(--muted)">
               برای ادامه وارد حساب Shortify خود شوید.
             </p>
 
@@ -130,7 +135,7 @@ function LoginPage() {
 
                 <Mail
                   size={18}
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--muted)]"
+                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-(--muted)"
                 />
 
                 <input
@@ -139,7 +144,7 @@ function LoginPage() {
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   placeholder="example@email.com"
-                  className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-11 text-sm outline-none transition-all placeholder:text-[var(--muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10"
+                  className="h-12 w-full rounded-xl border border-(--border) bg-(--background) px-11 text-sm outline-none transition-all placeholder:text-(--muted) focus:border-(--primary) focus:ring-2 focus:ring-(--primary)/10"
                 />
 
               </div>
@@ -162,7 +167,7 @@ function LoginPage() {
 
                 <Link
                   to="/forgot-password"
-                  className="text-xs font-medium text-[var(--primary)] transition-colors hover:text-[var(--primary-hover)]"
+                  className="text-xs font-medium text-(--primary) transition-colors hover:text-(--primary-hover)"
                 >
                   رمز عبور را فراموش کرده‌اید؟
                 </Link>
@@ -174,7 +179,7 @@ function LoginPage() {
 
                 <LockKeyhole
                   size={18}
-                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[var(--muted)]"
+                  className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-(--muted)"
                 />
 
                 <input
@@ -183,13 +188,13 @@ function LoginPage() {
                   value={password}
                   onChange={(event) => setPassword(event.target.value)}
                   placeholder="رمز عبور خود را وارد کنید"
-                  className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-11 pl-12 text-sm outline-none transition-all placeholder:text-[var(--muted)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/10"
+                  className="h-12 w-full rounded-xl border border-(--border) bg-(--background) px-11 pl-12 text-sm outline-none transition-all placeholder:text-(--muted) focus:border-(--primary) focus:ring-2 focus:ring-(--primary)/10"
                 />
 
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute left-4 top-1/2 -translate-y-1/2 text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+                  className="absolute left-4 top-1/2 -translate-y-1/2 text-(--muted) transition-colors hover:text-(--foreground)"
                   aria-label={
                     showPassword
                       ? "مخفی کردن رمز عبور"
@@ -215,12 +220,12 @@ function LoginPage() {
               <input
                 id="remember"
                 type="checkbox"
-                className="h-4 w-4 rounded border-[var(--border)] accent-[var(--primary)]"
+                className="h-4 w-4 rounded border-(--border) accent-(--primary)"
               />
 
               <label
                 htmlFor="remember"
-                className="cursor-pointer text-xs text-[var(--muted)]"
+                className="cursor-pointer text-xs text-(--muted)"
               >
                 مرا به خاطر بسپار
               </label>
@@ -239,7 +244,7 @@ function LoginPage() {
             <button
               type="submit"
               disabled={loading}
-              className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)] disabled:cursor-not-allowed disabled:opacity-50"
+              className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-(--primary) text-sm font-semibold text-white transition-all hover:bg-(--primary-hover) disabled:cursor-not-allowed disabled:opacity-50"
             >
               {loading ? "در حال ورود..." : "ورود"}
 
@@ -253,26 +258,26 @@ function LoginPage() {
 
           <div className="my-7 flex items-center gap-4">
 
-            <div className="h-px flex-1 bg-[var(--border)]" />
+            <div className="h-px flex-1 bg-(--border)" />
 
-            <span className="text-xs text-[var(--muted)]">
+            <span className="text-xs text-(--muted)">
               یا
             </span>
 
-            <div className="h-px flex-1 bg-[var(--border)]" />
+            <div className="h-px flex-1 bg-(--border)" />
 
           </div>
 
 
           {/* Register */}
 
-          <p className="text-center text-sm text-[var(--muted)]">
+          <p className="text-center text-sm text-(--muted)">
 
             حساب کاربری ندارید؟
 
             <Link
               to="/register"
-              className="mr-1 font-semibold text-[var(--primary)] transition-colors hover:text-[var(--primary-hover)]"
+              className="mr-1 font-semibold text-(--primary) transition-colors hover:text-(--primary-hover)"
             >
               ثبت‌نام کنید
             </Link>
@@ -288,7 +293,7 @@ function LoginPage() {
 
           <Link
             to="/"
-            className="inline-flex items-center gap-2 text-xs text-[var(--muted)] transition-colors hover:text-[var(--foreground)]"
+            className="inline-flex items-center gap-2 text-xs text-(--muted) transition-colors hover:text-(--foreground)"
           >
             بازگشت به صفحه اصلی
 
