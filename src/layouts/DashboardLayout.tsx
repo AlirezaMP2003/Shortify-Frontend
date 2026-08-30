@@ -1,53 +1,57 @@
 import {
-  BarChart3,
-  ExternalLink,
-  LayoutDashboard,
-  Link2,
-  LogOut,
-  Menu,
-  Moon,
-  Settings,
-  Sun,
-  User,
-  X,
-  Zap,
+BarChart3,
+LayoutDashboard,
+Link2,
+LogOut,
+Menu,
+Moon,
+Settings,
+Sun,
+User,
+X,
+Zap,
 } from "lucide-react"
 import { useState } from "react"
-import { NavLink, Outlet, useLocation } from "react-router-dom"
+import { NavLink, Outlet, useLocation, useNavigate } from "react-router-dom"
 import { useTheme } from "../contexts/ThemeContext"
+import { useAuth } from "../contexts/AuthContext"
 
 function DashboardLayout() {
   const [mobileOpen, setMobileOpen] = useState(false)
+  const [showLogoutModal, setShowLogoutModal] = useState(false)
 
   const { theme, setTheme } = useTheme()
+  const { user, logout } = useAuth()
+
   const location = useLocation()
+  const navigate = useNavigate()
 
   const navigation = [
-    {
-      title: "داشبورد",
-      path: "/dashboard",
-      icon: LayoutDashboard,
-    },
-    {
-      title: "لینک‌های من",
-      path: "/dashboard/links",
-      icon: Link2,
-    },
-    {
-      title: "ساخت لینک",
-      path: "/dashboard/links/new",
-      icon: Zap,
-    },
-    {
-      title: "API",
-      path: "/dashboard/api",
-      icon: BarChart3,
-    },
-    {
-      title: "تنظیمات",
-      path: "/dashboard/settings",
-      icon: Settings,
-    },
+  {
+  title: "داشبورد",
+  path: "/dashboard",
+  icon: LayoutDashboard,
+  },
+  {
+  title: "لینک‌های من",
+  path: "/dashboard/links",
+  icon: Link2,
+  },
+  {
+  title: "ساخت لینک",
+  path: "/dashboard/links/new",
+  icon: Zap,
+  },
+  {
+  title: "API",
+  path: "/dashboard/api",
+  icon: BarChart3,
+  },
+  {
+  title: "تنظیمات",
+  path: "/dashboard/settings",
+  icon: Settings,
+  },
   ]
 
   const closeMobileMenu = () => {
@@ -55,7 +59,17 @@ function DashboardLayout() {
   }
 
   const isDashboardActive =
-    location.pathname === "/dashboard"
+  location.pathname === "/dashboard"
+
+  const handleLogout = () => {
+    logout()
+    setShowLogoutModal(false)
+    navigate("/", { replace: true })
+  }
+
+  const userInitial = user?.name?.trim()
+  ? user.name.trim().charAt(0)
+  : "؟"
 
   return (
     <div
@@ -67,9 +81,7 @@ function DashboardLayout() {
           Mobile Header
       ========================== */}
 
-      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border-b border-[var(--border)] bg-[var(--background)]/90 px-4 backdrop-blur-xl lg:hidden">
-
-        {/* Menu */}
+      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border border-[var(--border)] bg-[var(--background)]/90 px-4 backdrop-blur-xl lg:hidden">
 
         <button
           type="button"
@@ -80,15 +92,11 @@ function DashboardLayout() {
           <Menu size={20} />
         </button>
 
-
-        {/* Logo */}
-
         <NavLink
           to="/dashboard"
           onClick={closeMobileMenu}
           className="flex items-center gap-2"
         >
-
           <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
             S
           </div>
@@ -96,32 +104,15 @@ function DashboardLayout() {
           <span className="text-lg font-bold">
             Shortify
           </span>
-
         </NavLink>
 
-
-        {/* Theme */}
-
-        <button
-          type="button"
-          onClick={() =>
-            setTheme(theme === "dark" ? "light" : "dark")
-          }
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
-          aria-label="تغییر حالت نمایش"
-        >
-          {theme === "dark" ? (
-            <Sun size={18} />
-          ) : (
-            <Moon size={18} />
-          )}
-        </button>
+        <div className="w-10" />
 
       </header>
 
 
       {/* =========================
-          Mobile Overlay
+          Overlay
       ========================== */}
 
       {mobileOpen && (
@@ -162,7 +153,6 @@ function DashboardLayout() {
             onClick={closeMobileMenu}
             className="flex items-center gap-2"
           >
-
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
               S
             </div>
@@ -170,11 +160,8 @@ function DashboardLayout() {
             <span className="text-lg font-bold">
               Shortify
             </span>
-
           </NavLink>
 
-
-          {/* Mobile Close */}
 
           <button
             type="button"
@@ -188,16 +175,13 @@ function DashboardLayout() {
         </div>
 
 
-        {/* =========================
-            Navigation
-        ========================== */}
+        {/* Navigation */}
 
         <nav className="flex-1 overflow-y-auto p-4">
 
           <p className="mb-3 px-3 text-xs font-medium text-[var(--muted)]">
             منوی اصلی
           </p>
-
 
           <div className="space-y-1.5">
 
@@ -208,12 +192,11 @@ function DashboardLayout() {
                 <NavLink
                   key={item.path}
                   to={item.path}
-                  end={item.path === "/dashboard"}
                   onClick={closeMobileMenu}
                   className={({ isActive }) =>
                     `
-                    group flex items-center gap-3 rounded-xl px-3 py-3
-                    text-sm font-medium transition-all duration-200
+                    flex items-center gap-3 rounded-xl px-3 py-3 text-sm
+                    transition-colors
                     ${
                       isActive
                         ? "bg-[var(--primary)]/10 text-[var(--primary)]"
@@ -222,101 +205,25 @@ function DashboardLayout() {
                     `
                   }
                 >
+                  <span className="flex h-5 w-5 items-center justify-center">
+                    <Icon size={18} />
+                  </span>
 
-                  {({ isActive }) => (
-                    <>
-                      <span
-                        className={`
-                          flex h-9 w-9 items-center justify-center rounded-lg
-                          transition-colors
-                          ${
-                            isActive
-                              ? "bg-[var(--primary)]/10"
-                              : "bg-transparent"
-                          }
-                        `}
-                      >
-                        <Icon size={18} />
-                      </span>
-
-                      <span>
-                        {item.title}
-                      </span>
-
-                      {isActive && (
-                        <span className="mr-auto h-1.5 w-1.5 rounded-full bg-[var(--primary)]" />
-                      )}
-                    </>
-                  )}
-
+                  <span>
+                    {item.title}
+                  </span>
                 </NavLink>
               )
             })}
 
           </div>
 
-
-          {/* Divider */}
-
-          <div className="my-6 border-t border-[var(--border)]" />
-
-
-          {/* Quick Access */}
-
-          <p className="mb-3 px-3 text-xs font-medium text-[var(--muted)]">
-            دسترسی سریع
-          </p>
-
-          <NavLink
-            to="/"
-            onClick={closeMobileMenu}
-            className="flex items-center gap-3 rounded-xl px-3 py-3 text-sm font-medium text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
-          >
-
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg">
-              <ExternalLink size={18} />
-            </span>
-
-            <span>
-              مشاهده سایت
-            </span>
-
-          </NavLink>
-
         </nav>
 
 
-        {/* =========================
-            User Section
-        ========================== */}
+        {/* Sidebar Bottom */}
 
         <div className="border-t border-[var(--border)] p-4">
-
-          {/* User Card */}
-
-          <div className="mb-3 flex items-center gap-3 rounded-2xl bg-[var(--background)] p-3">
-
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-sm font-bold text-[var(--primary)]">
-              ع
-            </div>
-
-            <div className="min-w-0 flex-1">
-
-              <p className="truncate text-sm font-semibold">
-                کاربر Shortify
-              </p>
-
-              <p
-                dir="ltr"
-                className="truncate text-right text-xs text-[var(--muted)]"
-              >
-                user@example.com
-              </p>
-
-            </div>
-
-          </div>
-
 
           {/* Theme */}
 
@@ -327,15 +234,12 @@ function DashboardLayout() {
             }
             className="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
           >
-
             <span className="flex h-5 w-5 items-center justify-center">
-
               {theme === "dark" ? (
                 <Sun size={18} />
               ) : (
                 <Moon size={18} />
               )}
-
             </span>
 
             <span>
@@ -343,7 +247,6 @@ function DashboardLayout() {
                 ? "حالت روشن"
                 : "حالت تاریک"}
             </span>
-
           </button>
 
 
@@ -354,7 +257,6 @@ function DashboardLayout() {
             onClick={closeMobileMenu}
             className="mb-1 flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
           >
-
             <span className="flex h-5 w-5 items-center justify-center">
               <User size={18} />
             </span>
@@ -362,7 +264,6 @@ function DashboardLayout() {
             <span>
               حساب کاربری
             </span>
-
           </NavLink>
 
 
@@ -370,9 +271,9 @@ function DashboardLayout() {
 
           <button
             type="button"
+            onClick={() => setShowLogoutModal(true)}
             className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-red-500 transition-colors hover:bg-red-500/10"
           >
-
             <span className="flex h-5 w-5 items-center justify-center">
               <LogOut size={18} />
             </span>
@@ -380,7 +281,6 @@ function DashboardLayout() {
             <span>
               خروج از حساب
             </span>
-
           </button>
 
         </div>
@@ -421,13 +321,11 @@ function DashboardLayout() {
               className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
               aria-label="تغییر حالت نمایش"
             >
-
               {theme === "dark" ? (
                 <Sun size={18} />
               ) : (
                 <Moon size={18} />
               )}
-
             </button>
 
 
@@ -438,17 +336,20 @@ function DashboardLayout() {
               <div className="text-left">
 
                 <p className="text-sm font-semibold">
-                  کاربر Shortify
+                  {user?.name || "کاربر"}
                 </p>
 
-                <p className="text-xs text-[var(--muted)]">
-                  حساب کاربری
+                <p
+                  dir="ltr"
+                  className="text-xs text-[var(--muted)]"
+                >
+                  {user?.email || ""}
                 </p>
 
               </div>
 
               <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-sm font-bold text-[var(--primary)]">
-                ع
+                {userInitial}
               </div>
 
             </div>
@@ -461,14 +362,72 @@ function DashboardLayout() {
         {/* Page Content */}
 
         <div className="pt-16 lg:pt-0">
-
           <Outlet />
-
         </div>
 
       </main>
 
+
+      {/* =========================
+          Logout Confirmation Modal
+      ========================== */}
+
+      {showLogoutModal && (
+        <div
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setShowLogoutModal(false)
+            }
+          }}
+        >
+
+          <div className="w-full max-w-sm rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl">
+
+            <div className="text-center">
+
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-red-500/10 text-red-500">
+                <LogOut size={24} />
+              </div>
+
+              <h2 className="mt-5 text-xl font-bold">
+                خروج از حساب
+              </h2>
+
+              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                آیا مطمئن هستید که می‌خواهید از حساب کاربری خود خارج شوید؟
+              </p>
+
+            </div>
+
+
+            <div className="mt-6 flex gap-3">
+
+              <button
+                type="button"
+                onClick={() => setShowLogoutModal(false)}
+                className="h-12 flex-1 rounded-xl border border-[var(--border)] text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
+              >
+                انصراف
+              </button>
+
+              <button
+                type="button"
+                onClick={handleLogout}
+                className="h-12 flex-1 rounded-xl bg-red-500 text-sm font-semibold text-white transition-colors hover:bg-red-600"
+              >
+                خروج از حساب
+              </button>
+
+            </div>
+
+          </div>
+
+        </div>
+      )}
+
     </div>
+
   )
 }
 

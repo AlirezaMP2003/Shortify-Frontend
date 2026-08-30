@@ -1,79 +1,90 @@
 import {
-  createContext,
-  useContext,
-  useEffect,
-  useState,
-  type ReactNode,
+createContext,
+useContext,
+useEffect,
+useState,
+type ReactNode,
 } from "react"
+import Cookies from "js-cookie"
 
 interface User {
-  id: string
-  name: string
-  email: string
+id: string
+name: string
+email: string
 }
 
 interface AuthContextType {
-  user: User | null
-  loading: boolean
-  isAuthenticated: boolean
-  checkAuth: () => Promise<void>
+user: User | null
+loading: boolean
+isAuthenticated: boolean
+checkAuth: () => Promise<void>
+logout: () => void
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(
-  undefined
+undefined
 )
 
 const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
 
 export function AuthProvider({
   children,
-}: {
-  children: ReactNode
-}) {
-  const [user, setUser] = useState<User | null>(null)
-  const [loading, setLoading] = useState(true)
+  }: {
+    children: ReactNode
+  }) {
+    const [user, setUser] = useState<User | null>(null)
+    const [loading, setLoading] = useState(true)
 
-  const checkAuth = async () => {
+    const checkAuth = async () => {
     try {
       const response = await fetch(
-        `${API_BASE_URL}/api/v1/auth/me`,
-        {
-          method: "GET",
-          credentials: "include",
-        }
-      )
+      `${API_BASE_URL}/api/v1/auth/me`,
+    {
+      method: "GET",
+      credentials: "include",
+    }
+    )
 
-      if (!response.ok) {
-        setUser(null)
-        return
-      }
 
-      const data = await response.json()
+    if (!response.ok) {
+      setUser(null)
+      return
+    }
 
-      setUser(data)
+    const data = await response.json()
+
+    setUser(data)
     } catch {
       setUser(null)
     } finally {
       setLoading(false)
     }
-  }
 
-  useEffect(() => {
-    checkAuth()
-  }, [])
 
-  return (
-    <AuthContext.Provider
+    }
+
+    const logout = () => {
+    Cookies.remove("access_token")
+      setUser(null)
+    }
+
+    useEffect(() => {
+      checkAuth()
+    }, [])
+
+    return (
+      <AuthContext.Provider
       value={{
-        user,
-        loading,
-        isAuthenticated: user !== null,
-        checkAuth,
+      user,
+      loading,
+      isAuthenticated: user !== null,
+      checkAuth,
+      logout,
       }}
-    >
-      {children}
-    </AuthContext.Provider>
-  )
+      >
+        {children}
+      </AuthContext.Provider>
+    )
 }
 
 export function useAuth() {
@@ -81,7 +92,7 @@ export function useAuth() {
 
   if (!context) {
     throw new Error(
-      "useAuth must be used inside AuthProvider"
+    "useAuth must be used inside AuthProvider"
     )
   }
 
