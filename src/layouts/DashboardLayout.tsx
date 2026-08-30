@@ -74,30 +74,30 @@ function DashboardLayout() {
   return (
     <div
       dir="rtl"
-      className="min-h-screen bg-[var(--background)] text-[var(--foreground)]"
+      className="min-h-screen bg-(--background) text-(--foreground)"
     >
 
       {/* =========================
           Mobile Header
       ========================== */}
 
-      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border border-[var(--border)] bg-[var(--background)]/90 px-4 backdrop-blur-xl lg:hidden">
+      <header className="fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between border border-(--border) bg-(--background)/90 px-4 backdrop-blur-xl lg:hidden">
 
         <button
           type="button"
           onClick={() => setMobileOpen(true)}
-          className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+          className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-(--muted) transition-colors hover:bg-(--surface-hover) hover:text-(--foreground)"
           aria-label="باز کردن منو"
         >
           <Menu size={20} />
         </button>
 
         <NavLink
-          to="/dashboard"
+          to="/"
           onClick={closeMobileMenu}
           className="flex items-center gap-2"
         >
-          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
+          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-(--primary) font-bold text-white">
             S
           </div>
 
@@ -132,8 +132,8 @@ function DashboardLayout() {
       <aside
         className={`
           fixed right-0 top-0 z-50 flex h-screen w-72 flex-col
-          border-l border-[var(--border)]
-          bg-[var(--surface)]
+          border-l border-(--border)
+          bg-(--surface)
           transition-transform duration-300
           lg:w-64
           ${
@@ -146,14 +146,14 @@ function DashboardLayout() {
 
         {/* Sidebar Header */}
 
-        <div className="flex h-20 items-center justify-between border-b border-[var(--border)] px-5">
+        <div className="flex h-20 items-center justify-between border-b border-(--border) px-5">
 
           <NavLink
-            to="/dashboard"
+            to="/"
             onClick={closeMobileMenu}
             className="flex items-center gap-2"
           >
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-(--primary) font-bold text-white">
               S
             </div>
 
@@ -166,7 +166,7 @@ function DashboardLayout() {
           <button
             type="button"
             onClick={closeMobileMenu}
-            className="flex h-9 w-9 items-center justify-center rounded-xl text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)] lg:hidden"
+            className="flex h-9 w-9 items-center justify-center rounded-xl text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground) lg:hidden"
             aria-label="بستن منو"
           >
             <X size={20} />
@@ -179,7 +179,7 @@ function DashboardLayout() {
 
         <nav className="flex-1 overflow-y-auto p-4">
 
-          <p className="mb-3 px-3 text-xs font-medium text-[var(--muted)]">
+          <p className="mb-3 px-3 text-xs font-medium text-(--muted)">
             منوی اصلی
           </p>
 
@@ -192,6 +192,7 @@ function DashboardLayout() {
                 <NavLink
                   key={item.path}
                   to={item.path}
+                  end={item.path === "/dashboard"}
                   onClick={closeMobileMenu}
                   className={({ isActive }) =>
                     `
@@ -199,8 +200,8 @@ function DashboardLayout() {
                     transition-colors
                     ${
                       isActive
-                        ? "bg-[var(--primary)]/10 text-[var(--primary)]"
-                        : "text-[var(--muted)] hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                        ? "bg-(--primary)/10 text-(--primary)"
+                        : "text-(--muted) hover:bg-(--background) hover:text-(--foreground)"
                     }
                     `
                   }
@@ -223,7 +224,7 @@ function DashboardLayout() {
 
         {/* Sidebar Bottom */}
 
-        <div className="border-t border-[var(--border)] p-4">
+        <div className="border-t border-(--border) p-4">
 
           {/* Theme */}
 
@@ -232,7 +233,7 @@ function DashboardLayout() {
             onClick={() =>
               setTheme(theme === "dark" ? "light" : "dark")
             }
-            className="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+            className="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
           >
             <span className="flex h-5 w-5 items-center justify-center">
               {theme === "dark" ? (
@@ -255,7 +256,7 @@ function DashboardLayout() {
           <NavLink
             to="/dashboard/settings"
             onClick={closeMobileMenu}
-            className="mb-1 flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+            className="mb-1 flex items-center gap-3 rounded-xl px-3 py-3 text-sm text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
           >
             <span className="flex h-5 w-5 items-center justify-center">
               <User size={18} />
@@ -296,11 +297,11 @@ function DashboardLayout() {
 
         {/* Desktop Header */}
 
-        <header className="sticky top-0 z-30 hidden h-20 items-center justify-between border-b border-[var(--border)] bg-[var(--background)]/90 px-6 backdrop-blur-xl lg:flex">
+        <header className="sticky top-0 z-30 hidden h-20 items-center justify-between border-b border-(--border) bg-(--background)/90 px-6 backdrop-blur-xl lg:flex">
 
           <div>
 
-            <p className="text-sm text-[var(--muted)]">
+            <p className="text-sm text-(--muted)">
               {isDashboardActive
                 ? "خوش آمدید 👋"
                 : "پنل مدیریت Shortify"}
@@ -318,7 +319,7 @@ function DashboardLayout() {
               onClick={() =>
                 setTheme(theme === "dark" ? "light" : "dark")
               }
-              className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+              className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-(--muted) transition-colors hover:bg-(--surface-hover) hover:text-(--foreground)"
               aria-label="تغییر حالت نمایش"
             >
               {theme === "dark" ? (
@@ -331,7 +332,7 @@ function DashboardLayout() {
 
             {/* User */}
 
-            <div className="flex items-center gap-3 border-r border-[var(--border)] pr-4">
+            <div className="flex items-center gap-3 border-r border-(--border) pr-4">
 
               <div className="text-left">
 
@@ -341,14 +342,14 @@ function DashboardLayout() {
 
                 <p
                   dir="ltr"
-                  className="text-xs text-[var(--muted)]"
+                  className="text-xs text-(--muted)"
                 >
                   {user?.email || ""}
                 </p>
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-sm font-bold text-[var(--primary)]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-(--primary)/10 text-sm font-bold text-(--primary)">
                 {userInitial}
               </div>
 
@@ -374,7 +375,7 @@ function DashboardLayout() {
 
       {showLogoutModal && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
+          className="fixed inset-0 z-100 flex items-center justify-center bg-black/50 px-4 backdrop-blur-sm"
           onMouseDown={(event) => {
             if (event.target === event.currentTarget) {
               setShowLogoutModal(false)
@@ -382,7 +383,7 @@ function DashboardLayout() {
           }}
         >
 
-          <div className="w-full max-w-sm rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-6 shadow-2xl">
+          <div className="w-full max-w-sm rounded-3xl border border-(--border) bg-(--surface) p-6 shadow-2xl">
 
             <div className="text-center">
 
@@ -394,7 +395,7 @@ function DashboardLayout() {
                 خروج از حساب
               </h2>
 
-              <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+              <p className="mt-3 text-sm leading-7 text-(--muted)">
                 آیا مطمئن هستید که می‌خواهید از حساب کاربری خود خارج شوید؟
               </p>
 
@@ -406,7 +407,7 @@ function DashboardLayout() {
               <button
                 type="button"
                 onClick={() => setShowLogoutModal(false)}
-                className="h-12 flex-1 rounded-xl border border-[var(--border)] text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
+                className="h-12 flex-1 rounded-xl border border-(--border) text-sm font-medium transition-colors hover:bg-(--surface-hover)"
               >
                 انصراف
               </button>
