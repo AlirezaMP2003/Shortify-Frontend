@@ -11,7 +11,7 @@ function LinksHeader() {
 
             <div className="flex items-center gap-3">
 
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--primary)]/10 text-[var(--primary)">
                     <Link2 size={21} />
                 </div>
 
@@ -21,7 +21,7 @@ function LinksHeader() {
                     لینک‌های من
                     </h1>
 
-                    <p className="mt-1 text-sm text-[var(--muted)]">
+                    <p className="mt-1 text-sm text-(--muted)">
                     تمام لینک‌های کوتاه‌شده خود را مدیریت کنید.
                     </p>
 
@@ -35,7 +35,7 @@ function LinksHeader() {
       <button
         type="button"
         onClick={() => navigate("/dashboard/links/new")}
-        className="flex h-11 items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)]"
+        className="flex h-11 items-center justify-center gap-2 rounded-xl bg-(--primary) px-5 text-sm font-semibold text-white transition-all hover:bg-(--primary-hover) cursor-pointer"
       >
 
         <Plus size={18} />

@@ -27,7 +27,7 @@ function LinksToolbar({
   onSortChange,
 }: LinksToolbarProps) {
   return (
-    <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-4">
+    <section className="rounded-2xl border border-(--border) bg-(--surface) p-4">
 
       <div className="flex flex-col gap-3 lg:flex-row lg:items-center">
 
@@ -37,7 +37,7 @@ function LinksToolbar({
 
           <Search
             size={18}
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-(--muted)"
           />
 
           <input
@@ -47,7 +47,7 @@ function LinksToolbar({
               onSearchChange(event.target.value)
             }
             placeholder="جستجو در لینک‌ها..."
-            className="h-11 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] pr-10 pl-4 text-sm outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--primary)]"
+            className="h-11 w-full rounded-xl border border-(--border) bg-(--background) pr-10 pl-4 text-sm outline-none transition-colors placeholder:text-(--muted) focus:border-(--primary)"
           />
 
         </div>
@@ -59,7 +59,7 @@ function LinksToolbar({
 
           <Filter
             size={17}
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-(--muted)"
           />
 
           <select
@@ -69,7 +69,7 @@ function LinksToolbar({
                 event.target.value as "all" | LinkStatus
               )
             }
-            className="h-11 w-full appearance-none rounded-xl border border-[var(--border)] bg-[var(--background)] py-2 pl-10 pr-10 text-sm text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)] lg:w-44"
+            className="h-11 w-full appearance-none rounded-xl border border-(--border) bg-(--background) py-2 pl-10 pr-10 text-sm text-(--foreground) outline-none transition-colors focus:border-(--primary) lg:w-44"
           >
 
             <option value="all">
@@ -95,7 +95,7 @@ function LinksToolbar({
 
           <SlidersHorizontal
             size={17}
-            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-[var(--muted)]"
+            className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2 text-(--muted)"
           />
 
           <select
@@ -105,7 +105,7 @@ function LinksToolbar({
                 event.target.value as SortOption
               )
             }
-            className="h-11 w-full appearance-none rounded-xl border border-[var(--border)] bg-[var(--background)] py-2 pl-10 pr-10 text-sm text-[var(--foreground)] outline-none transition-colors focus:border-[var(--primary)] lg:w-48"
+            className="h-11 w-full appearance-none rounded-xl border border-(--border) bg-(--background) py-2 pl-10 pr-10 text-sm text-(--foreground) outline-none transition-colors focus:border-(--primary) lg:w-48"
           >
 
             <option value="newest">
