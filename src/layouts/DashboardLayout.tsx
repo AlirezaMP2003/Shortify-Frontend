@@ -233,7 +233,7 @@ function DashboardLayout() {
             onClick={() =>
               setTheme(theme === "dark" ? "light" : "dark")
             }
-            className="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
+            className="mb-1 flex w-full items-center gap-3 rounded-xl px-3 py-3 text-sm text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground) cursor-pointer"
           >
             <span className="flex h-5 w-5 items-center justify-center">
               {theme === "dark" ? (
