@@ -57,7 +57,7 @@ function LinkCreatedSuccess({
           لینک شما ساخته شد!
         </h1>
 
-        <p className="mt-2 text-sm text-[var(--muted)]">
+        <p className="mt-2 text-sm text-(--muted)">
           لینک کوتاه شما آماده استفاده است.
         </p>
 
@@ -66,13 +66,13 @@ function LinkCreatedSuccess({
 
       {/* Main Card */}
 
-      <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+      <div className="rounded-2xl border border-(--border) bg-(--surface) p-5 sm:p-7">
 
         {/* Short URL */}
 
         <div>
 
-          <p className="mb-2 text-sm text-[var(--muted)]">
+          <p className="mb-2 text-sm text-(--muted)">
             لینک کوتاه
           </p>
 
@@ -80,7 +80,7 @@ function LinkCreatedSuccess({
 
             <div
               dir="ltr"
-              className="min-w-0 flex-1 truncate rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 py-3 text-sm font-semibold text-[var(--primary)]"
+              className="min-w-0 flex-1 truncate rounded-xl border border-(--border) bg-(--background) px-4 py-3 text-sm font-semibold text-(--primary)"
             >
               {shortUrl}
             </div>
@@ -88,7 +88,7 @@ function LinkCreatedSuccess({
             <button
               type="button"
               onClick={handleCopy}
-              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-[var(--border)] transition-colors hover:bg-[var(--surface-hover)]"
+              className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl border border-(--border) transition-colors hover:bg-(--surface-hover)"
               title="کپی لینک"
             >
               {copied ? (
@@ -103,7 +103,7 @@ function LinkCreatedSuccess({
 
           </div>
 
-          <p className="mt-2 text-xs text-[var(--muted)]">
+          <p className="mt-2 text-xs text-(--muted)">
             {copied
               ? "لینک در کلیپ‌بورد کپی شد."
               : "برای کپی کردن لینک روی دکمه کلیک کنید."}
@@ -114,9 +114,9 @@ function LinkCreatedSuccess({
 
         {/* Destination */}
 
-        <div className="mt-6 border-t border-[var(--border)] pt-6">
+        <div className="mt-6 border-t border-(--border) pt-6">
 
-          <p className="mb-2 text-sm text-[var(--muted)]">
+          <p className="mb-2 text-sm text-(--muted)">
             لینک مقصد
           </p>
 
@@ -124,7 +124,7 @@ function LinkCreatedSuccess({
 
             <ExternalLink
               size={17}
-              className="shrink-0 text-[var(--muted)]"
+              className="shrink-0 text-(--muted)"
             />
 
             <p
@@ -147,7 +147,7 @@ function LinkCreatedSuccess({
           <button
             type="button"
             onClick={onCreateAnother}
-            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-[var(--border)] text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
+            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-(--border) text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
           >
             <Plus size={17} />
 

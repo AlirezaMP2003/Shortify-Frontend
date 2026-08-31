@@ -1,6 +1,7 @@
 export interface ValidationErrors {
   originalUrl?: string
   customSlug?: string
+  password?: string
 }
 
 export function validateOriginalUrl(
@@ -75,7 +76,8 @@ export function validateCustomSlug(
 
 export function validateCreateLinkForm(
   originalUrl: string,
-  customSlug: string
+  customSlug: string,
+  password: string
 ): ValidationErrors {
   const errors: ValidationErrors = {}
 
@@ -89,6 +91,12 @@ export function validateCreateLinkForm(
 
   if (slugError) {
     errors.customSlug = slugError
+  }
+
+  const trimmedPassword = password.trim()
+  if (trimmedPassword && trimmedPassword.length < 8) {
+    errors.password =
+    "رمز عبور باید حداقل ۸ کاراکتر باشد."
   }
 
   return errors

@@ -16,7 +16,7 @@ function LinkOptions({
   onChange,
 }: LinkOptionsProps) {
   return (
-    <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+    <section className="rounded-2xl border border-(--border) bg-(--surface) p-5 sm:p-7">
 
       <div className="mb-6">
 
@@ -24,7 +24,7 @@ function LinkOptions({
           تنظیمات پیشرفته
         </h2>
 
-        <p className="mt-1 text-xs text-[var(--muted)]">
+        <p className="mt-1 text-xs text-(--muted)">
           تنظیمات اختیاری لینک کوتاه‌شده را مشخص کنید.
         </p>
 
@@ -44,11 +44,11 @@ function LinkOptions({
             Slug سفارشی
           </label>
 
-          <div className="flex overflow-hidden rounded-xl border border-[var(--border)] bg-[var(--background)] focus-within:border-[var(--primary)]">
+          <div className="flex overflow-hidden rounded-xl border border-(--border) bg-(--background) focus-within:border-(--primary)">
 
             <span
               dir="ltr"
-              className="flex items-center border-l border-[var(--border)] px-3 text-sm text-[var(--muted)]"
+              className="flex items-center border-l border-(--border) px-3 text-sm text-(--muted)"
             >
               shortify.ir/
             </span>
@@ -65,18 +65,18 @@ function LinkOptions({
               }
               placeholder="my-link"
               dir="ltr"
-              className="h-12 min-w-0 flex-1 bg-transparent px-4 text-left text-sm outline-none placeholder:text-[var(--muted)]"
+              className="h-12 min-w-0 flex-1 bg-transparent px-4 text-left text-sm outline-none placeholder:text-(--muted)"
             />
-
-            {errors.customSlug && (
-                <p className="mt-2 text-xs text-red-500">
-                    {errors.customSlug}
-                </p>
-            )}
 
           </div>
 
-          <p className="mt-2 text-xs text-[var(--muted)]">
+          {errors.customSlug && (
+                <p className="mt-2 text-xs text-red-500">
+                    {errors.customSlug}
+                </p>
+          )}
+
+          <p className="mt-2 text-xs text-(--muted)">
             اگر خالی باشد، یک شناسه کوتاه به صورت خودکار ایجاد می‌شود.
           </p>
 
@@ -88,22 +88,22 @@ function LinkOptions({
         <div>
 
           <label
-            htmlFor="expiresAt"
+            htmlFor="expires_at"
             className="mb-2 block text-sm font-medium"
           >
             تاریخ انقضا
           </label>
 
           <select
-            id="expiresAt"
-            value={formData.expiresAt}
+            id="expires_at"
+            value={formData.expires_at}
             onChange={(event) =>
               onChange(
-                "expiresAt",
+                "expires_at",
                 event.target.value
               )
             }
-            className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 text-sm outline-none transition-colors focus:border-[var(--primary)]"
+            className="h-12 w-full rounded-xl border border-(--border) bg-(--background) px-4 text-sm outline-none transition-colors focus:border-(--primary)"
           >
 
             <option value="">
@@ -149,10 +149,16 @@ function LinkOptions({
               )
             }
             placeholder="اختیاری"
-            className="h-12 w-full rounded-xl border border-[var(--border)] bg-[var(--background)] px-4 text-sm outline-none transition-colors placeholder:text-[var(--muted)] focus:border-[var(--primary)]"
+            className="h-12 w-full rounded-xl border border-(--border) bg-(--background) px-4 text-sm outline-none transition-colors placeholder:text-(--muted) focus:border-(--primary)"
           />
 
-          <p className="mt-2 text-xs text-[var(--muted)]">
+          {errors.password && (
+            <p className="mt-2 text-xs text-red-500">
+            {errors.password}
+            </p>
+          )}
+
+          <p className="mt-2 text-xs text-(--muted)">
             کاربران برای دسترسی به لینک باید این رمز را وارد کنند.
           </p>
 
