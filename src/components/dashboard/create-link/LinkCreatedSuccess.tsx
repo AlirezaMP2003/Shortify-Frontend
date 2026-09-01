@@ -147,7 +147,7 @@ function LinkCreatedSuccess({
           <button
             type="button"
             onClick={onCreateAnother}
-            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-(--border) text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
+            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl border border-(--border) text-sm font-medium transition-colors hover:bg-(--surface-hover)"
           >
             <Plus size={17} />
 
@@ -158,7 +158,7 @@ function LinkCreatedSuccess({
             href={`https://${shortUrl}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-[var(--primary)] text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-hover)]"
+            className="flex h-12 flex-1 items-center justify-center gap-2 rounded-xl bg-(--primary) text-sm font-semibold text-white transition-colors hover:bg-(--primary-hover)"
           >
             مشاهده لینک
 

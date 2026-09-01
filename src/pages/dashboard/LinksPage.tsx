@@ -205,7 +205,7 @@ return ( <div className="px-4 pb-10 pt-6 sm:px-6 lg:px-8">
     )}
 
     {loading ? (
-      <div className="rounded-2xl border border-(--border) bg-(--surface) p-10 text-center text-sm text-[var(--muted)]">
+      <div className="rounded-2xl border border-(--border) bg-(--surface) p-10 text-center text-sm text-(--muted)">
         در حال دریافت لینک‌ها...
       </div>
     ) : (

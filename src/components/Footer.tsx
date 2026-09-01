@@ -5,7 +5,7 @@ function Footer() {
   return (
     <footer
       id="about"
-      className="border-t border-[var(--border)] bg-[var(--surface)]"
+      className="border-t border-(--border) bg-(--surface)"
     >
 
       <div className="mx-auto max-w-7xl px-6 py-16">
@@ -21,7 +21,7 @@ function Footer() {
               className="inline-flex items-center gap-2"
             >
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-(--primary) font-bold text-white">
                 S
               </div>
 
@@ -32,7 +32,7 @@ function Footer() {
             </Link>
 
 
-            <p className="mt-5 max-w-md text-sm leading-7 text-[var(--muted)]">
+            <p className="mt-5 max-w-md text-sm leading-7 text-(--muted)">
               یک پلتفرم مدرن برای کوتاه کردن، مدیریت و
               تحلیل لینک‌ها؛ سریع، امن و قابل اعتماد.
             </p>
@@ -45,7 +45,7 @@ function Footer() {
                 <a
                     href="#"
                     aria-label="GitHub"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-xs font-semibold text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-xs font-semibold text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
                 >
                     GH
                 </a>
@@ -53,7 +53,7 @@ function Footer() {
                 <a
                     href="#"
                     aria-label="Twitter"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-xs font-semibold text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-xs font-semibold text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
                 >
                     X
                 </a>
@@ -61,7 +61,7 @@ function Footer() {
                 <a
                     href="#"
                     aria-label="LinkedIn"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-xs font-semibold text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-xs font-semibold text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
                 >
                     in
                 </a>
@@ -69,7 +69,7 @@ function Footer() {
                 <a
                     href="#"
                     aria-label="Instagram"
-                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-xs font-semibold text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-xs font-semibold text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
                 >
                     IG
                 </a>
@@ -87,12 +87,12 @@ function Footer() {
               محصول
             </h3>
 
-            <ul className="mt-5 space-y-4 text-sm text-[var(--muted)]">
+            <ul className="mt-5 space-y-4 text-sm text-(--muted)">
 
               <li>
                 <a
                   href="#features"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   امکانات
                 </a>
@@ -101,7 +101,7 @@ function Footer() {
               <li>
                 <a
                   href="#analytics"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   تحلیل‌ها
                 </a>
@@ -110,7 +110,7 @@ function Footer() {
               <li>
                 <a
                   href="#api"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   API
                 </a>
@@ -129,12 +129,12 @@ function Footer() {
               شرکت
             </h3>
 
-            <ul className="mt-5 space-y-4 text-sm text-[var(--muted)]">
+            <ul className="mt-5 space-y-4 text-sm text-(--muted)">
 
               <li>
                 <Link
                   to="/about"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   درباره ما
                 </Link>
@@ -143,7 +143,7 @@ function Footer() {
               <li>
                 <Link
                   to="/contact"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   تماس با ما
                 </Link>
@@ -152,7 +152,7 @@ function Footer() {
               <li>
                 <Link
                   to="/privacy"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   حریم خصوصی
                 </Link>
@@ -161,7 +161,7 @@ function Footer() {
               <li>
                 <Link
                   to="/terms"
-                  className="transition-colors hover:text-[var(--foreground)]"
+                  className="transition-colors hover:text-(--foreground)"
                 >
                   قوانین و شرایط
                 </Link>
@@ -176,7 +176,7 @@ function Footer() {
 
         {/* Bottom */}
 
-        <div className="mt-14 flex flex-col gap-4 border-t border-[var(--border)] pt-7 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+        <div className="mt-14 flex flex-col gap-4 border-t border-(--border) pt-7 text-xs text-(--muted) sm:flex-row sm:items-center sm:justify-between">
 
           <p>
             © {new Date().getFullYear()} Shortify. تمامی حقوق محفوظ است.

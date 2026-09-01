@@ -58,7 +58,7 @@ function Features() {
 
         <div className="max-w-2xl">
 
-          <div className="flex items-center gap-2 text-sm font-semibold text-[var(--primary)]">
+          <div className="flex items-center gap-2 text-sm font-semibold text-(--primary)">
 
             <Sparkles size={16} />
 
@@ -70,7 +70,7 @@ function Features() {
             بیشتر از یک کوتاه‌کننده لینک
           </h2>
 
-          <p className="mt-5 leading-8 text-[var(--muted)]">
+          <p className="mt-5 leading-8 text-(--muted)">
             ابزارهایی که برای مدیریت حرفه‌ای لینک‌ها نیاز دارید،
             در یک پلتفرم سریع و ساده در اختیار شماست.
           </p>
@@ -88,12 +88,12 @@ function Features() {
             return (
               <div
                 key={feature.title}
-                className={`group rounded-3xl border border-[var(--border)] bg-[var(--surface)] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 ${feature.className}`}
+                className={`group rounded-3xl border border-(--border) bg-(--surface) p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5 ${feature.className}`}
               >
 
                 {/* Icon */}
 
-                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)] transition-transform duration-300 group-hover:scale-110">
+                <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-(--primary)/10 text-(--primary) transition-transform duration-300 group-hover:scale-110">
 
                   <Icon size={23} />
 
@@ -106,7 +106,7 @@ function Features() {
                   {feature.title}
                 </h3>
 
-                <p className="mt-3 max-w-xl text-sm leading-7 text-[var(--muted)]">
+                <p className="mt-3 max-w-xl text-sm leading-7 text-(--muted)">
                   {feature.description}
                 </p>
 
@@ -116,13 +116,13 @@ function Features() {
                 {feature.title === "تحلیل دقیق لینک‌ها" && (
                   <div className="mt-8">
 
-                    <div className="flex h-28 items-end gap-2 rounded-2xl bg-[var(--background)] p-5">
+                    <div className="flex h-28 items-end gap-2 rounded-2xl bg-(--background) p-5">
 
                       {[35, 50, 42, 64, 55, 72, 61, 84, 70, 92].map(
                         (height, index) => (
                           <div
                             key={index}
-                            className="flex-1 rounded-t-md bg-[var(--primary)]/60 transition-colors group-hover:bg-[var(--primary)]"
+                            className="flex-1 rounded-t-md bg-(--primary)/60 transition-colors group-hover:bg-(--primary)"
                             style={{
                               height: `${height}%`,
                             }}
@@ -139,7 +139,7 @@ function Features() {
                 {/* Special content for Security */}
 
                 {feature.title === "اعتبارسنجی و امنیت" && (
-                  <div className="mt-8 space-y-3 rounded-2xl bg-[var(--background)] p-5">
+                  <div className="mt-8 space-y-3 rounded-2xl bg-(--background) p-5">
 
                     {[
                       "بررسی ساختار URL",
@@ -174,13 +174,13 @@ function Features() {
                 {/* Special content for Custom Links */}
 
                 {feature.title === "لینک‌های سفارشی" && (
-                  <div className="mt-8 rounded-2xl bg-[var(--background)] p-5 text-center">
+                  <div className="mt-8 rounded-2xl bg-(--background) p-5 text-center">
 
-                    <span className="text-sm text-[var(--muted)]">
+                    <span className="text-sm text-(--muted)">
                       sho.rt/
                     </span>
 
-                    <span className="text-sm font-bold text-[var(--primary)]">
+                    <span className="text-sm font-bold text-(--primary)">
                       summer-sale
                     </span>
 
@@ -191,12 +191,12 @@ function Features() {
                 {/* Special content for QR */}
 
                 {feature.title === "QR Code" && (
-                  <div className="mt-8 flex items-center justify-center rounded-2xl bg-[var(--background)] py-7">
+                  <div className="mt-8 flex items-center justify-center rounded-2xl bg-(--background) py-7">
 
                     <QrCode
                       size={82}
                       strokeWidth={1.2}
-                      className="text-[var(--foreground)]"
+                      className="text-(--foreground)"
                     />
 
                   </div>
@@ -206,11 +206,11 @@ function Features() {
                 {/* Special content for Speed */}
 
                 {feature.title === "سریع و قابل اعتماد" && (
-                  <div className="mt-8 rounded-2xl bg-[var(--background)] p-5">
+                  <div className="mt-8 rounded-2xl bg-(--background) p-5">
 
                     <div className="flex items-center justify-between">
 
-                      <span className="text-xs text-[var(--muted)]">
+                      <span className="text-xs text-(--muted)">
                         Response time
                       </span>
 
@@ -220,7 +220,7 @@ function Features() {
 
                     </div>
 
-                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-[var(--border)]">
+                    <div className="mt-3 h-2 overflow-hidden rounded-full bg-(--border)">
 
                       <div className="h-full w-[85%] rounded-full bg-green-500" />
 

@@ -24,11 +24,11 @@ function Hero() {
 
           {/* Badge */}
 
-          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--surface)] px-4 py-2 text-xs font-medium text-[var(--muted)] shadow-sm">
+          <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-(--border) bg-(--surface) px-4 py-2 text-xs font-medium text-(--muted) shadow-sm">
 
             <Sparkles
               size={14}
-              className="text-[var(--primary)]"
+              className="text-(--primary)"
             />
 
             مدیریت هوشمند لینک‌ها
@@ -38,11 +38,11 @@ function Hero() {
 
           {/* Title */}
 
-          <h1 className="text-4xl font-bold leading-[1.25] tracking-tight sm:text-5xl lg:text-7xl">
+          <h1 className="text-4xl font-bold leading-tight tracking-tight sm:text-5xl lg:text-7xl">
 
             لینک‌هایتان را
 
-            <span className="block bg-gradient-to-l from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <span className="block bg-linear-to-l from-indigo-500 to-violet-500 bg-clip-text text-transparent">
               کوتاه‌تر و هوشمندتر
             </span>
 
@@ -53,7 +53,7 @@ function Hero() {
 
           {/* Description */}
 
-          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-[var(--muted)] sm:text-lg">
+          <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-(--muted) sm:text-lg">
 
             با Shortify لینک‌های کوتاه، امن و قابل‌اندازه‌گیری
             بسازید و تمام لینک‌های خود را در یک داشبورد حرفه‌ای
@@ -66,13 +66,13 @@ function Hero() {
 
           <div className="mx-auto mt-10 max-w-3xl">
 
-            <div className="flex flex-col gap-3 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-2 shadow-xl shadow-black/5 sm:flex-row">
+            <div className="flex flex-col gap-3 rounded-2xl border border-(--border) bg-(--surface) p-2 shadow-xl shadow-black/5 sm:flex-row">
 
               <div className="flex min-w-0 flex-1 items-center gap-3 px-4">
 
                 <Link2
                   size={20}
-                  className="shrink-0 text-[var(--muted)]"
+                  className="shrink-0 text-(--muted)"
                 />
 
                 <input
@@ -80,7 +80,7 @@ function Hero() {
                   value={url}
                   onChange={(event) => setUrl(event.target.value)}
                   placeholder="لینک طولانی خود را وارد کنید..."
-                  className="min-w-0 flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-[var(--muted)]"
+                  className="min-w-0 flex-1 bg-transparent py-3 text-sm outline-none placeholder:text-(--muted)"
                 />
 
               </div>
@@ -88,7 +88,7 @@ function Hero() {
 
               <button
                 type="button"
-                className="flex items-center justify-center gap-2 rounded-xl bg-[var(--primary)] px-7 py-3 font-semibold text-white transition-all hover:bg-[var(--primary-hover)]"
+                className="flex items-center justify-center gap-2 rounded-xl bg-(--primary) px-7 py-3 font-semibold text-white transition-all hover:bg-(--primary-hover)"
               >
 
                 کوتاه کن
@@ -100,7 +100,7 @@ function Hero() {
             </div>
 
 
-            <p className="mt-3 text-xs text-[var(--muted)]">
+            <p className="mt-3 text-xs text-(--muted)">
               لینک شما قبل از کوتاه شدن اعتبارسنجی می‌شود.
             </p>
 
@@ -113,11 +113,11 @@ function Hero() {
 
             <div>
 
-              <span className="font-bold text-[var(--foreground)]">
+              <span className="font-bold text-(--foreground)">
                 12K+
               </span>
 
-              <span className="mr-2 text-[var(--muted)]">
+              <span className="mr-2 text-(--muted)">
                 لینک ساخته شده
               </span>
 
@@ -126,11 +126,11 @@ function Hero() {
 
             <div>
 
-              <span className="font-bold text-[var(--foreground)]">
+              <span className="font-bold text-(--foreground)">
                 99.9%
               </span>
 
-              <span className="mr-2 text-[var(--muted)]">
+              <span className="mr-2 text-(--muted)">
                 دسترس‌پذیری
               </span>
 
@@ -139,11 +139,11 @@ function Hero() {
 
             <div>
 
-              <span className="font-bold text-[var(--foreground)]">
+              <span className="font-bold text-(--foreground)">
                 24/7
               </span>
 
-              <span className="mr-2 text-[var(--muted)]">
+              <span className="mr-2 text-(--muted)">
                 پایش لینک‌ها
               </span>
 

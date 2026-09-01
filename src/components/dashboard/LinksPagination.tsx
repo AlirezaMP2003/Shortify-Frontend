@@ -36,9 +36,9 @@ function LinksPagination({
   )
 
   return (
-    <div className="flex flex-col gap-4 border-t border-[var(--border)] px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
+    <div className="flex flex-col gap-4 border-t border-(--border) px-5 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-6">
 
-      <p className="text-xs text-[var(--muted)]">
+      <p className="text-xs text-(--muted)">
         نمایش{" "}
         {startItem.toLocaleString("fa-IR")}
         {" تا "}
@@ -57,7 +57,7 @@ function LinksPagination({
           onClick={() =>
             onPageChange(currentPage - 1)
           }
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)] disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-(--border) text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground) disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="صفحه قبل"
         >
           <ChevronRight size={16} />
@@ -72,8 +72,8 @@ function LinksPagination({
             onClick={() => onPageChange(page)}
             className={`flex h-9 min-w-9 items-center justify-center rounded-lg px-2 text-xs transition-colors ${
               currentPage === page
-                ? "bg-[var(--primary)] font-semibold text-white"
-                : "text-[var(--muted)] hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+                ? "bg-(--primary) font-semibold text-white"
+                : "text-(--muted) hover:bg-(--background) hover:text-(--foreground)"
             }`}
           >
             {page.toLocaleString("fa-IR")}
@@ -88,7 +88,7 @@ function LinksPagination({
           onClick={() =>
             onPageChange(currentPage + 1)
           }
-          className="flex h-9 w-9 items-center justify-center rounded-lg border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)] disabled:cursor-not-allowed disabled:opacity-40"
+          className="flex h-9 w-9 items-center justify-center rounded-lg border border-(--border) text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground) disabled:cursor-not-allowed disabled:opacity-40"
           aria-label="صفحه بعد"
         >
           <ChevronLeft size={16} />

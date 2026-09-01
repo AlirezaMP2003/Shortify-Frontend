@@ -17,7 +17,7 @@ function ApiSection() {
   return (
     <section
       id="api"
-      className="scroll-mt-24 border-y border-[var(--border)] bg-[var(--surface)] px-6 py-24 lg:py-32"
+      className="scroll-mt-24 border-y border-(--border) bg-(--surface) px-6 py-24 lg:py-32"
     >
       <div className="mx-auto max-w-7xl">
 
@@ -27,11 +27,11 @@ function ApiSection() {
 
           <div>
 
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-(--primary)/10 text-(--primary)">
               <Code2 size={27} />
             </div>
 
-            <span className="mt-7 block text-sm font-semibold text-[var(--primary)]">
+            <span className="mt-7 block text-sm font-semibold text-(--primary)">
               API قدرتمند
             </span>
 
@@ -39,7 +39,7 @@ function ApiSection() {
               Shortify را به سرویس خود متصل کنید
             </h2>
 
-            <p className="mt-5 max-w-xl leading-8 text-[var(--muted)]">
+            <p className="mt-5 max-w-xl leading-8 text-(--muted)">
               با API کوتاه‌کننده لینک Shortify، قابلیت کوتاه کردن
               و مدیریت لینک را مستقیماً به وب‌سایت یا اپلیکیشن خود
               اضافه کنید.
@@ -56,11 +56,11 @@ function ApiSection() {
                   className="flex items-center gap-3"
                 >
 
-                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[var(--primary)]/10">
+                  <div className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-(--primary)/10">
 
                     <Check
                       size={14}
-                      className="text-[var(--primary)]"
+                      className="text-(--primary)"
                     />
 
                   </div>
@@ -79,7 +79,7 @@ function ApiSection() {
 
             <button
               type="button"
-              className="mt-9 flex items-center gap-2 rounded-xl bg-[var(--primary)] px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-[var(--primary-hover)]"
+              className="mt-9 flex items-center gap-2 rounded-xl bg-(--primary) px-5 py-3 text-sm font-semibold text-white transition-all hover:bg-(--primary-hover)"
             >
               مشاهده مستندات API
 
@@ -92,7 +92,7 @@ function ApiSection() {
 
           {/* Code Preview */}
 
-          <div className="overflow-hidden rounded-3xl border border-[var(--border)] bg-[#111827] shadow-2xl shadow-black/10">
+          <div className="overflow-hidden rounded-3xl border border-(--border) bg-[#111827] shadow-2xl shadow-black/10">
 
             {/* Terminal Header */}
 

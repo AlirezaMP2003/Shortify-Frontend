@@ -91,7 +91,7 @@ function Api() {
             API
           </h1>
 
-          <p className="mt-2 text-sm text-[var(--muted)]">
+          <p className="mt-2 text-sm text-(--muted)">
             API Key خود را مدیریت کنید و از API Shortify در پروژه‌های خود استفاده کنید.
           </p>
 
@@ -100,7 +100,7 @@ function Api() {
 
         {/* API Key */}
 
-        <section className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+        <section className="rounded-2xl border border-(--border) bg-(--surface) p-5 sm:p-7">
 
           <div className="flex flex-col gap-5">
 
@@ -108,7 +108,7 @@ function Api() {
 
             <div className="flex items-start gap-4">
 
-              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+              <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-(--primary)/10 text-(--primary)">
 
                 <KeyRound size={21} />
 
@@ -121,7 +121,7 @@ function Api() {
                   API Key
                 </h2>
 
-                <p className="mt-1 text-sm text-[var(--muted)]">
+                <p className="mt-1 text-sm text-(--muted)">
                   از این کلید برای احراز هویت درخواست‌های API استفاده کنید.
                 </p>
 
@@ -134,7 +134,7 @@ function Api() {
 
             <div className="flex flex-col gap-3 sm:flex-row">
 
-              <div className="flex min-w-0 flex-1 items-center rounded-xl border border-[var(--border)] bg-[var(--background)] px-4">
+              <div className="flex min-w-0 flex-1 items-center rounded-xl border border-(--border) bg-(--background) px-4">
 
                 <code
                   dir="ltr"
@@ -154,7 +154,7 @@ function Api() {
                       ? "مخفی کردن کلید"
                       : "نمایش کلید"
                   }
-                  className="mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+                  className="mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-(--muted) transition-colors hover:bg-(--surface-hover) hover:text-(--foreground)"
                 >
                   {showKey ? (
                     <EyeOff size={17} />
@@ -169,7 +169,7 @@ function Api() {
               <button
                 type="button"
                 onClick={handleCopy}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-[var(--border)] px-5 text-sm font-medium transition-colors hover:bg-[var(--surface-hover)]"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-xl border border-(--border) px-5 text-sm font-medium transition-colors hover:bg-(--surface-hover)"
               >
 
                 {copied ? (
@@ -219,7 +219,7 @@ function Api() {
 
             {/* Metadata */}
 
-            <div className="flex flex-col gap-2 border-t border-[var(--border)] pt-5 text-xs text-[var(--muted)] sm:flex-row sm:items-center sm:justify-between">
+            <div className="flex flex-col gap-2 border-t border-(--border) pt-5 text-xs text-(--muted) sm:flex-row sm:items-center sm:justify-between">
 
               <span>
                 وضعیت:{" "}
@@ -241,11 +241,11 @@ function Api() {
 
         {/* API Documentation */}
 
-        <section className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+        <section className="mt-6 rounded-2xl border border-(--border) bg-(--surface) p-5 sm:p-7">
 
           <div className="flex items-start gap-4">
 
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-(--primary)/10 text-(--primary)">
 
               <BookOpen size={21} />
 
@@ -258,7 +258,7 @@ function Api() {
                 مستندات API
               </h2>
 
-              <p className="mt-1 text-sm text-[var(--muted)]">
+              <p className="mt-1 text-sm text-(--muted)">
                 Endpointهای اصلی API Shortify
               </p>
 
@@ -271,7 +271,7 @@ function Api() {
 
             {/* Create */}
 
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+            <div className="rounded-xl border border-(--border) bg-(--background) p-4">
 
               <div className="flex flex-wrap items-center gap-3">
 
@@ -289,7 +289,7 @@ function Api() {
               </div>
 
 
-              <p className="mt-3 text-sm text-[var(--muted)]">
+              <p className="mt-3 text-sm text-(--muted)">
                 ساخت یک لینک کوتاه جدید
               </p>
 
@@ -298,7 +298,7 @@ function Api() {
 
             {/* Get All */}
 
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+            <div className="rounded-xl border border-(--border) bg-(--background) p-4">
 
               <div className="flex flex-wrap items-center gap-3">
 
@@ -316,7 +316,7 @@ function Api() {
               </div>
 
 
-              <p className="mt-3 text-sm text-[var(--muted)]">
+              <p className="mt-3 text-sm text-(--muted)">
                 دریافت لیست لینک‌های کاربر
               </p>
 
@@ -325,7 +325,7 @@ function Api() {
 
             {/* Get One */}
 
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+            <div className="rounded-xl border border-(--border) bg-(--background) p-4">
 
               <div className="flex flex-wrap items-center gap-3">
 
@@ -343,7 +343,7 @@ function Api() {
               </div>
 
 
-              <p className="mt-3 text-sm text-[var(--muted)]">
+              <p className="mt-3 text-sm text-(--muted)">
                 دریافت اطلاعات یک لینک
               </p>
 
@@ -352,7 +352,7 @@ function Api() {
 
             {/* Update */}
 
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+            <div className="rounded-xl border border-(--border) bg-(--background) p-4">
 
               <div className="flex flex-wrap items-center gap-3">
 
@@ -370,7 +370,7 @@ function Api() {
               </div>
 
 
-              <p className="mt-3 text-sm text-[var(--muted)]">
+              <p className="mt-3 text-sm text-(--muted)">
                 ویرایش اطلاعات یک لینک
               </p>
 
@@ -379,7 +379,7 @@ function Api() {
 
             {/* Delete */}
 
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--background)] p-4">
+            <div className="rounded-xl border border-(--border) bg-(--background) p-4">
 
               <div className="flex flex-wrap items-center gap-3">
 
@@ -397,7 +397,7 @@ function Api() {
               </div>
 
 
-              <p className="mt-3 text-sm text-[var(--muted)]">
+              <p className="mt-3 text-sm text-(--muted)">
                 حذف یک لینک
               </p>
 
@@ -410,11 +410,11 @@ function Api() {
 
         {/* Example Request */}
 
-        <section className="mt-6 rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 sm:p-7">
+        <section className="mt-6 rounded-2xl border border-(--border) bg-(--surface) p-5 sm:p-7">
 
           <div className="flex items-start gap-4">
 
-            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
+            <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-(--primary)/10 text-(--primary)">
 
               <Code2 size={21} />
 
@@ -427,7 +427,7 @@ function Api() {
                 نمونه درخواست
               </h2>
 
-              <p className="mt-1 text-sm text-[var(--muted)]">
+              <p className="mt-1 text-sm text-(--muted)">
                 نمونه‌ای از ساخت لینک با API
               </p>
 
@@ -436,11 +436,11 @@ function Api() {
           </div>
 
 
-          <div className="mt-6 overflow-hidden rounded-xl border border-[var(--border)]">
+          <div className="mt-6 overflow-hidden rounded-xl border border-(--border)">
 
-            <div className="flex items-center justify-between border-b border-[var(--border)] bg-[var(--background)] px-4 py-3">
+            <div className="flex items-center justify-between border-b border-(--border) bg-(--background) px-4 py-3">
 
-              <span className="text-xs text-[var(--muted)]">
+              <span className="text-xs text-(--muted)">
                 cURL
               </span>
 
@@ -466,13 +466,13 @@ function Api() {
 
         {/* Future API */}
 
-        <div className="mt-6 rounded-2xl border border-dashed border-[var(--border)] p-6 text-center">
+        <div className="mt-6 rounded-2xl border border-dashed border-(--border) p-6 text-center">
 
           <p className="text-sm font-medium">
             مستندات کامل API
           </p>
 
-          <p className="mt-2 text-xs text-[var(--muted)]">
+          <p className="mt-2 text-xs text-(--muted)">
             در نسخه بعدی می‌توانیم Swagger / OpenAPI و
             مستندات کامل endpointها را اضافه کنیم.
           </p>

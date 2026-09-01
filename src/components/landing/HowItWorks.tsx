@@ -30,7 +30,7 @@ function HowItWorks() {
   ]
 
   return (
-    <section className="border-y border-[var(--border)] bg-[var(--surface)] px-6 py-24 lg:py-32">
+    <section className="border-y border-(--border) bg-(--surface) px-6 py-24 lg:py-32">
 
       <div className="mx-auto max-w-7xl">
 
@@ -38,7 +38,7 @@ function HowItWorks() {
 
         <div className="mx-auto max-w-2xl text-center">
 
-          <span className="text-sm font-semibold text-[var(--primary)]">
+          <span className="text-sm font-semibold text-(--primary)">
             نحوه کار
           </span>
 
@@ -46,7 +46,7 @@ function HowItWorks() {
             کوتاه کردن لینک، ساده‌تر از همیشه
           </h2>
 
-          <p className="mt-5 leading-8 text-[var(--muted)]">
+          <p className="mt-5 leading-8 text-(--muted)">
             در چند مرحله ساده لینک خود را کوتاه کنید و
             کنترل بیشتری روی لینک‌هایتان داشته باشید.
           </p>
@@ -60,7 +60,7 @@ function HowItWorks() {
 
           {/* Connecting Line */}
 
-          <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-12 hidden border-t border-dashed border-[var(--border)] md:block" />
+          <div className="pointer-events-none absolute left-[16.66%] right-[16.66%] top-12 hidden border-t border-dashed border-(--border) md:block" />
 
 
           {steps.map((step) => {
@@ -69,21 +69,21 @@ function HowItWorks() {
             return (
               <div
                 key={step.number}
-                className="relative rounded-3xl border border-[var(--border)] bg-[var(--background)] p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
+                className="relative rounded-3xl border border-(--border) bg-(--background) p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-black/5"
               >
 
                 {/* Icon */}
 
                 <div className="relative z-10 flex items-center justify-between">
 
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[var(--border)] bg-[var(--surface)] text-[var(--primary)] shadow-sm">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-(--border) bg-(--surface) text-(--primary) shadow-sm">
 
                     <Icon size={23} />
 
                   </div>
 
 
-                  <span className="text-4xl font-bold text-[var(--border)]">
+                  <span className="text-4xl font-bold text-(--border)">
                     {step.number}
                   </span>
 
@@ -96,7 +96,7 @@ function HowItWorks() {
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-sm leading-7 text-[var(--muted)]">
+                <p className="mt-3 text-sm leading-7 text-(--muted)">
                   {step.description}
                 </p>
 

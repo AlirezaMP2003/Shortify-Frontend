@@ -5,7 +5,7 @@ function CTASection() {
   return (
     <section className="px-6 py-24 lg:py-32">
 
-      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-[2rem] bg-[var(--primary)] px-6 py-16 text-center text-white sm:px-12 lg:px-20">
+      <div className="relative mx-auto max-w-6xl overflow-hidden rounded-4xl bg-(--primary) px-6 py-16 text-center text-white sm:px-12 lg:px-20">
 
         {/* Background Effects */}
 
@@ -54,7 +54,7 @@ function CTASection() {
 
             <Link
               to="/register"
-              className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-[var(--primary)] transition-all hover:bg-white/90 sm:w-auto"
+              className="flex w-full items-center justify-center gap-2 rounded-xl bg-white px-6 py-3 text-sm font-semibold text-(--primary) transition-all hover:bg-white/90 sm:w-auto"
             >
               شروع رایگان
 

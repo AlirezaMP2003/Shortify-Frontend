@@ -20,11 +20,11 @@ function AnalyticsSection() {
 
         <div className="mx-auto max-w-2xl text-center">
 
-          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-[var(--primary)]/10 text-[var(--primary)]">
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl bg-(--primary)/10 text-(--primary)">
             <BarChart3 size={27} />
           </div>
 
-          <span className="mt-7 block text-sm font-semibold text-[var(--primary)]">
+          <span className="mt-7 block text-sm font-semibold text-(--primary)">
             تحلیل و آمار
           </span>
 
@@ -32,7 +32,7 @@ function AnalyticsSection() {
             بدانید لینک‌هایتان چه عملکردی دارند
           </h2>
 
-          <p className="mt-5 leading-8 text-[var(--muted)]">
+          <p className="mt-5 leading-8 text-(--muted)">
             اطلاعات مهم مربوط به لینک‌ها را در یک داشبورد
             حرفه‌ای مشاهده کنید و رفتار کاربران را بهتر بشناسید.
           </p>
@@ -42,11 +42,11 @@ function AnalyticsSection() {
 
         {/* Analytics Dashboard */}
 
-        <div className="mt-14 overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] shadow-xl shadow-black/5">
+        <div className="mt-14 overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-xl shadow-black/5">
 
           {/* Dashboard Header */}
 
-          <div className="flex flex-col gap-4 border-b border-[var(--border)] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+          <div className="flex flex-col gap-4 border-b border-(--border) p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
 
             <div>
 
@@ -54,7 +54,7 @@ function AnalyticsSection() {
                 آمار لینک‌ها
               </h3>
 
-              <p className="mt-1 text-xs text-[var(--muted)]">
+              <p className="mt-1 text-xs text-(--muted)">
                 گزارش عملکرد در ۳۰ روز گذشته
               </p>
 
@@ -62,7 +62,7 @@ function AnalyticsSection() {
 
             <button
               type="button"
-              className="flex w-fit items-center gap-2 rounded-xl border border-[var(--border)] px-4 py-2 text-xs text-[var(--muted)] transition-colors hover:bg-[var(--background)] hover:text-[var(--foreground)]"
+              className="flex w-fit items-center gap-2 rounded-xl border border-(--border) px-4 py-2 text-xs text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
             >
               ۳۰ روز گذشته
 
@@ -78,17 +78,17 @@ function AnalyticsSection() {
 
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center justify-between">
 
-                  <span className="text-xs text-[var(--muted)]">
+                  <span className="text-xs text-(--muted)">
                     کل کلیک‌ها
                   </span>
 
                   <MousePointerClick
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                 </div>
@@ -104,17 +104,17 @@ function AnalyticsSection() {
               </div>
 
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center justify-between">
 
-                  <span className="text-xs text-[var(--muted)]">
+                  <span className="text-xs text-(--muted)">
                     کاربران
                   </span>
 
                   <Globe2
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                 </div>
@@ -130,17 +130,17 @@ function AnalyticsSection() {
               </div>
 
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center justify-between">
 
-                  <span className="text-xs text-[var(--muted)]">
+                  <span className="text-xs text-(--muted)">
                     دستگاه‌ها
                   </span>
 
                   <Smartphone
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                 </div>
@@ -149,24 +149,24 @@ function AnalyticsSection() {
                   63%
                 </p>
 
-                <p className="mt-2 text-xs text-[var(--muted)]">
+                <p className="mt-2 text-xs text-(--muted)">
                   موبایل
                 </p>
 
               </div>
 
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center justify-between">
 
-                  <span className="text-xs text-[var(--muted)]">
+                  <span className="text-xs text-(--muted)">
                     نرخ کلیک
                   </span>
 
                   <BarChart3
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                 </div>
@@ -186,7 +186,7 @@ function AnalyticsSection() {
 
             {/* Chart */}
 
-            <div className="mt-5 rounded-2xl border border-[var(--border)] p-5 sm:p-6">
+            <div className="mt-5 rounded-2xl border border-(--border) p-5 sm:p-6">
 
               <div className="flex items-center justify-between">
 
@@ -196,13 +196,13 @@ function AnalyticsSection() {
                     روند کلیک‌ها
                   </h4>
 
-                  <p className="mt-1 text-xs text-[var(--muted)]">
+                  <p className="mt-1 text-xs text-(--muted)">
                     تعداد کلیک‌های روزانه
                   </p>
 
                 </div>
 
-                <span className="text-sm font-bold text-[var(--primary)]">
+                <span className="text-sm font-bold text-(--primary)">
                   24,892
                 </span>
 
@@ -220,7 +220,7 @@ function AnalyticsSection() {
                   >
 
                     <div
-                      className="w-full rounded-t-lg bg-[var(--primary)]/60 transition-all duration-300 group-hover:bg-[var(--primary)]"
+                      className="w-full rounded-t-lg bg-(--primary)/60 transition-all duration-300 group-hover:bg-(--primary)"
                       style={{
                         height: `${height}%`,
                       }}
@@ -234,7 +234,7 @@ function AnalyticsSection() {
 
               {/* Chart Labels */}
 
-              <div className="mt-3 flex justify-between text-[10px] text-[var(--muted)]">
+              <div className="mt-3 flex justify-between text-[10px] text-(--muted)">
 
                 <span>۱ تیر</span>
                 <span>۷ تیر</span>
@@ -253,13 +253,13 @@ function AnalyticsSection() {
 
               {/* Countries */}
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center gap-2">
 
                   <Globe2
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                   <h4 className="text-sm font-semibold">
@@ -285,16 +285,16 @@ function AnalyticsSection() {
                           {country}
                         </span>
 
-                        <span className="text-[var(--muted)]">
+                        <span className="text-(--muted)">
                           {percentage}
                         </span>
 
                       </div>
 
-                      <div className="h-2 overflow-hidden rounded-full bg-[var(--border)]">
+                      <div className="h-2 overflow-hidden rounded-full bg-(--border)">
 
                         <div
-                          className="h-full rounded-full bg-[var(--primary)]"
+                          className="h-full rounded-full bg-(--primary)"
                           style={{
                             width: percentage,
                           }}
@@ -312,13 +312,13 @@ function AnalyticsSection() {
 
               {/* Devices */}
 
-              <div className="rounded-2xl border border-[var(--border)] p-5">
+              <div className="rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center gap-2">
 
                   <Smartphone
                     size={18}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                   <h4 className="text-sm font-semibold">
@@ -343,16 +343,16 @@ function AnalyticsSection() {
                           {device}
                         </span>
 
-                        <span className="text-[var(--muted)]">
+                        <span className="text-(--muted)">
                           {percentage}
                         </span>
 
                       </div>
 
-                      <div className="h-2 overflow-hidden rounded-full bg-[var(--border)]">
+                      <div className="h-2 overflow-hidden rounded-full bg-(--border)">
 
                         <div
-                          className="h-full rounded-full bg-[var(--primary)]"
+                          className="h-full rounded-full bg-(--primary)"
                           style={{
                             width: percentage,
                           }}

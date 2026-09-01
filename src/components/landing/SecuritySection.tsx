@@ -14,7 +14,7 @@ function SecuritySection() {
   ]
 
   return (
-    <section className="border-y border-[var(--border)] bg-[var(--surface)] px-6 py-24 lg:py-32">
+    <section className="border-y border-(--border) bg-(--surface) px-6 py-24 lg:py-32">
 
       <div className="mx-auto grid max-w-7xl items-center gap-14 lg:grid-cols-2">
 
@@ -34,7 +34,7 @@ function SecuritySection() {
             هر لینکی ارزش کوتاه شدن ندارد.
           </h2>
 
-          <p className="mt-5 max-w-xl leading-8 text-[var(--muted)]">
+          <p className="mt-5 max-w-xl leading-8 text-(--muted)">
             Shortify قبل از ایجاد لینک کوتاه، مقصد آن را
             بررسی می‌کند تا لینک‌های نامعتبر یا مشکوک وارد
             سیستم نشوند.
@@ -74,9 +74,9 @@ function SecuritySection() {
 
         {/* Validation Card */}
 
-        <div className="rounded-3xl border border-[var(--border)] bg-[var(--background)] p-6 shadow-xl shadow-black/5 sm:p-8">
+        <div className="rounded-3xl border border-(--border) bg-(--background) p-6 shadow-xl shadow-black/5 sm:p-8">
 
-          <div className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-6">
+          <div className="rounded-2xl border border-(--border) bg-(--surface) p-6">
 
             {/* Card Header */}
 
@@ -92,7 +92,7 @@ function SecuritySection() {
                   بررسی لینک
                 </p>
 
-                <p className="mt-1 text-xs text-[var(--muted)]">
+                <p className="mt-1 text-xs text-(--muted)">
                   اعتبارسنجی مقصد
                 </p>
 
@@ -103,16 +103,16 @@ function SecuritySection() {
 
             {/* URL */}
 
-            <div className="mt-6 flex items-center gap-3 rounded-xl bg-[var(--background)] p-4">
+            <div className="mt-6 flex items-center gap-3 rounded-xl bg-(--background) p-4">
 
               <Globe
                 size={18}
-                className="shrink-0 text-[var(--muted)]"
+                className="shrink-0 text-(--muted)"
               />
 
               <span
                 dir="ltr"
-                className="truncate text-xs text-[var(--muted)]"
+                className="truncate text-xs text-(--muted)"
               >
                 https://example.com/product
               </span>
@@ -127,7 +127,7 @@ function SecuritySection() {
               {checks.map((item) => (
                 <div
                   key={item}
-                  className="flex items-center justify-between border-b border-[var(--border)] pb-4 last:border-0 last:pb-0"
+                  className="flex items-center justify-between border-b border-(--border) pb-4 last:border-0 last:pb-0"
                 >
 
                   <span className="text-sm">

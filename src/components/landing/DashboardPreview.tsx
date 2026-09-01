@@ -11,10 +11,10 @@ function DashboardPreview() {
       <div className="mx-auto max-w-6xl">
 
         {/* Browser / Dashboard Frame */}
-        <div className="overflow-hidden rounded-3xl border border-[var(--border)] bg-[var(--surface)] shadow-2xl shadow-black/10">
+        <div className="overflow-hidden rounded-3xl border border-(--border) bg-(--surface) shadow-2xl shadow-black/10">
 
           {/* Top Bar */}
-          <div className="flex h-14 items-center justify-between border-b border-[var(--border)] px-5">
+          <div className="flex h-14 items-center justify-between border-b border-(--border) px-5">
 
             <div className="flex items-center gap-2">
               <span className="h-3 w-3 rounded-full bg-red-400" />
@@ -22,7 +22,7 @@ function DashboardPreview() {
               <span className="h-3 w-3 rounded-full bg-green-400" />
             </div>
 
-            <div className="text-xs text-[var(--muted)]">
+            <div className="text-xs text-(--muted)">
               داشبورد Shortify
             </div>
 
@@ -33,11 +33,11 @@ function DashboardPreview() {
           <div className="grid md:grid-cols-[190px_1fr]">
 
             {/* Sidebar */}
-            <aside className="hidden border-l border-[var(--border)] p-5 md:block">
+            <aside className="hidden border-l border-(--border) p-5 md:block">
 
               <div className="mb-8 flex items-center gap-2">
 
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--primary)] text-sm font-bold text-white">
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-(--primary) text-sm font-bold text-white">
                   S
                 </div>
 
@@ -50,19 +50,19 @@ function DashboardPreview() {
 
               <nav className="space-y-2 text-sm">
 
-                <div className="rounded-xl bg-[var(--primary)] px-3 py-2.5 text-white">
+                <div className="rounded-xl bg-(--primary) px-3 py-2.5 text-white">
                   داشبورد
                 </div>
 
-                <div className="rounded-xl px-3 py-2.5 text-[var(--muted)]">
+                <div className="rounded-xl px-3 py-2.5 text-(--muted)">
                   لینک‌های من
                 </div>
 
-                <div className="rounded-xl px-3 py-2.5 text-[var(--muted)]">
+                <div className="rounded-xl px-3 py-2.5 text-(--muted)">
                   تحلیل‌ها
                 </div>
 
-                <div className="rounded-xl px-3 py-2.5 text-[var(--muted)]">
+                <div className="rounded-xl px-3 py-2.5 text-(--muted)">
                   API
                 </div>
 
@@ -81,7 +81,7 @@ function DashboardPreview() {
                   خلاصه عملکرد
                 </h3>
 
-                <p className="mt-1 text-xs text-[var(--muted)]">
+                <p className="mt-1 text-xs text-(--muted)">
                   وضعیت لینک‌های شما در ۳۰ روز گذشته
                 </p>
 
@@ -91,17 +91,17 @@ function DashboardPreview() {
               {/* Stats */}
               <div className="grid gap-4 sm:grid-cols-3">
 
-                <div className="rounded-2xl border border-[var(--border)] p-4">
+                <div className="rounded-2xl border border-(--border) p-4">
 
                   <div className="flex items-center justify-between">
 
-                    <p className="text-xs text-[var(--muted)]">
+                    <p className="text-xs text-(--muted)">
                       تعداد کلیک‌ها
                     </p>
 
                     <MousePointerClick
                       size={17}
-                      className="text-[var(--primary)]"
+                      className="text-(--primary)"
                     />
 
                   </div>
@@ -117,17 +117,17 @@ function DashboardPreview() {
                 </div>
 
 
-                <div className="rounded-2xl border border-[var(--border)] p-4">
+                <div className="rounded-2xl border border-(--border) p-4">
 
                   <div className="flex items-center justify-between">
 
-                    <p className="text-xs text-[var(--muted)]">
+                    <p className="text-xs text-(--muted)">
                       لینک‌ها
                     </p>
 
                     <Link2
                       size={17}
-                      className="text-[var(--primary)]"
+                      className="text-(--primary)"
                     />
 
                   </div>
@@ -136,18 +136,18 @@ function DashboardPreview() {
                     1,248
                   </p>
 
-                  <p className="mt-2 text-xs text-[var(--muted)]">
+                  <p className="mt-2 text-xs text-(--muted)">
                     لینک فعال
                   </p>
 
                 </div>
 
 
-                <div className="rounded-2xl border border-[var(--border)] p-4">
+                <div className="rounded-2xl border border-(--border) p-4">
 
                   <div className="flex items-center justify-between">
 
-                    <p className="text-xs text-[var(--muted)]">
+                    <p className="text-xs text-(--muted)">
                       نرخ رشد
                     </p>
 
@@ -172,7 +172,7 @@ function DashboardPreview() {
 
 
               {/* Chart */}
-              <div className="mt-5 rounded-2xl border border-[var(--border)] p-5">
+              <div className="mt-5 rounded-2xl border border-(--border) p-5">
 
                 <div className="flex items-center justify-between">
 
@@ -182,7 +182,7 @@ function DashboardPreview() {
                       تعداد کلیک‌ها
                     </p>
 
-                    <p className="mt-1 text-xs text-[var(--muted)]">
+                    <p className="mt-1 text-xs text-(--muted)">
                       عملکرد لینک‌ها در روزهای اخیر
                     </p>
 
@@ -190,7 +190,7 @@ function DashboardPreview() {
 
                   <BarChart3
                     size={19}
-                    className="text-[var(--primary)]"
+                    className="text-(--primary)"
                   />
 
                 </div>
@@ -202,7 +202,7 @@ function DashboardPreview() {
                     (height, index) => (
                       <div
                         key={index}
-                        className="flex-1 rounded-t-md bg-[var(--primary)]/60 transition-colors hover:bg-[var(--primary)]"
+                        className="flex-1 rounded-t-md bg-(--primary)/60 transition-colors hover:bg-(--primary)"
                         style={{ height: `${height}%` }}
                       />
                     ),
@@ -214,9 +214,9 @@ function DashboardPreview() {
 
 
               {/* Recent Links */}
-              <div className="mt-5 rounded-2xl border border-[var(--border)]">
+              <div className="mt-5 rounded-2xl border border-(--border)">
 
-                <div className="border-b border-[var(--border)] px-5 py-4">
+                <div className="border-b border-(--border) px-5 py-4">
 
                   <p className="text-sm font-semibold">
                     لینک‌های اخیر
@@ -225,7 +225,7 @@ function DashboardPreview() {
                 </div>
 
 
-                <div className="divide-y divide-[var(--border)]">
+                <div className="divide-y divide-(--border)">
 
                   <div className="flex items-center justify-between gap-4 px-5 py-4">
 
@@ -235,13 +235,13 @@ function DashboardPreview() {
                         sho.rt/a8K92x
                       </p>
 
-                      <p className="mt-1 truncate text-xs text-[var(--muted)]">
+                      <p className="mt-1 truncate text-xs text-(--muted)">
                         example.com/product
                       </p>
 
                     </div>
 
-                    <span className="shrink-0 text-xs text-[var(--muted)]">
+                    <span className="shrink-0 text-xs text-(--muted)">
                       1,245 کلیک
                     </span>
 
@@ -256,13 +256,13 @@ function DashboardPreview() {
                         sho.rt/X7kP92
                       </p>
 
-                      <p className="mt-1 truncate text-xs text-[var(--muted)]">
+                      <p className="mt-1 truncate text-xs text-(--muted)">
                         example.com/article
                       </p>
 
                     </div>
 
-                    <span className="shrink-0 text-xs text-[var(--muted)]">
+                    <span className="shrink-0 text-xs text-(--muted)">
                       842 کلیک
                     </span>
 

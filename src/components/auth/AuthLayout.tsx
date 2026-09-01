@@ -9,15 +9,15 @@ function AuthLayout({ children }: AuthLayoutProps) {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="min-h-screen bg-[var(--background)] text-[var(--foreground)]">
+    <div className="min-h-screen bg-(--background) text-(--foreground)">
 
       {/* Background */}
 
       <div className="pointer-events-none fixed inset-0 overflow-hidden">
 
-        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+        <div className="absolute -right-32 -top-32 h-96 w-96 rounded-full bg-(--primary)/10 blur-3xl" />
 
-        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-[var(--primary)]/10 blur-3xl" />
+        <div className="absolute -bottom-32 -left-32 h-96 w-96 rounded-full bg-(--primary)/10 blur-3xl" />
 
       </div>
 
@@ -35,7 +35,7 @@ function AuthLayout({ children }: AuthLayoutProps) {
             className="flex items-center gap-2"
           >
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[var(--primary)] font-bold text-white">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-(--primary) font-bold text-white">
               S
             </div>
 
@@ -53,7 +53,7 @@ function AuthLayout({ children }: AuthLayoutProps) {
             onClick={() =>
               setTheme(theme === "dark" ? "light" : "dark")
             }
-            className="flex h-10 w-10 items-center justify-center rounded-xl border border-[var(--border)] text-[var(--muted)] transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
+            className="flex h-10 w-10 items-center justify-center rounded-xl border border-(--border) text-(--muted) transition-colors hover:bg-[var(--surface-hover)] hover:text-[var(--foreground)]"
             aria-label="تغییر حالت نمایش"
           >
             {theme === "dark" ? "☀" : "☾"}
