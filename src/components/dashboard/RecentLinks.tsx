@@ -16,7 +16,7 @@ interface LinkItem {
   short_url: string
   original_url: string
   clicks: number
-  is_active: boolean
+  status: string
   created_at: string
 }
 
@@ -243,7 +243,7 @@ function RecentLinks() {
 
                     <td className="px-6 py-4">
 
-                      {link.is_active ? (
+                      {link.status === "active" ? (
 
                         <span className="inline-flex items-center gap-1.5 rounded-full bg-green-500/10 px-2.5 py-1 text-xs font-medium text-green-500">
 
@@ -282,7 +282,7 @@ function RecentLinks() {
                           onClick={() =>
                             copyLink(link.short_url)
                           }
-                          className="flex h-8 w-8 items-center justify-center rounded-lg text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground)"
+                          className="flex h-8 w-8 items-center justify-center rounded-lg text-(--muted) transition-colors hover:bg-(--background) hover:text-(--foreground) cursor-pointer"
                           aria-label="کپی لینک"
                         >
                           <Copy size={15} />

@@ -1,39 +1,109 @@
 import {
-  ArrowUpLeft,
   CheckCircle2,
   Clock3,
   Link2,
   MousePointerClick,
 } from "lucide-react"
+import { useEffect, useState } from "react"
+import { useNavigate } from "react-router-dom"
+import Cookies from "js-cookie"
+
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+
+interface DashboardOverviewResponse {
+  total_links: number
+  total_clicks: number
+  active_links: number
+  expired_links: number
+}
+
+interface Stat {
+  title: string
+  value: number
+  description: string
+  icon: typeof Link2
+}
 
 function StatsGrid() {
-  const stats = [
+  const navigate = useNavigate()
+
+  const [stats, setStats] =
+    useState<DashboardOverviewResponse | null>(null)
+
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState("")
+
+  useEffect(() => {
+    const fetchDashboardOverview = async () => {
+      try {
+        setLoading(true)
+        setError("")
+
+        const token = Cookies.get("access_token")
+
+        if (!token) {
+          navigate("/login")
+          return
+        }
+
+        const response = await fetch(
+          `${API_BASE_URL}/api/v1/dashboard/overview`,
+          {
+            method: "GET",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+            credentials: "include",
+          }
+        )
+
+        const data = await response.json()
+
+        if (!response.ok) {
+          throw new Error(
+            data.detail ||
+              "دریافت اطلاعات داشبورد با خطا مواجه شد."
+          )
+        }
+
+        setStats(data)
+      } catch (error) {
+        if (error instanceof Error) {
+          setError(error.message)
+        } else {
+          setError("خطایی در دریافت اطلاعات داشبورد رخ داد.")
+        }
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchDashboardOverview()
+  }, [navigate])
+
+  const statItems: Stat[] = [
     {
       title: "کل لینک‌ها",
-      value: "128",
-      change: "+12.5%",
-      description: "نسبت به ماه قبل",
+      value: stats?.total_links ?? 0,
+      description: "تعداد کل لینک‌های شما",
       icon: Link2,
     },
     {
       title: "کل کلیک‌ها",
-      value: "24,892",
-      change: "+18.2%",
-      description: "نسبت به ماه قبل",
+      value: stats?.total_clicks ?? 0,
+      description: "تعداد کل کلیک‌ها",
       icon: MousePointerClick,
     },
     {
       title: "لینک‌های فعال",
-      value: "116",
-      change: "+8.4%",
+      value: stats?.active_links ?? 0,
       description: "در حال استفاده",
       icon: CheckCircle2,
     },
     {
       title: "لینک‌های منقضی",
-      value: "12",
-      change: "-4.2%",
-      description: "نسبت به ماه قبل",
+      value: stats?.expired_links ?? 0,
+      description: "منقضی شده",
       icon: Clock3,
     },
   ]
@@ -41,58 +111,58 @@ function StatsGrid() {
   return (
     <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
 
-      {stats.map((stat) => {
-        const Icon = stat.icon
+      {loading && (
+        <div className="col-span-full rounded-2xl border border-(--border) bg-(--surface) p-6 text-center text-sm text-(--muted)">
+          در حال دریافت اطلاعات...
+        </div>
+      )}
 
-        return (
-          <div
-            key={stat.title}
-            className="rounded-2xl border border-[var(--border)] bg-[var(--surface)] p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5"
-          >
+      {!loading && error && (
+        <div className="col-span-full rounded-2xl border border-red-500/20 bg-red-500/10 p-6 text-center text-sm text-red-500">
+          {error}
+        </div>
+      )}
 
-            <div className="flex items-start justify-between">
+      {!loading &&
+        !error &&
+        statItems.map((stat) => {
+          const Icon = stat.icon
 
-              <div>
+          return (
+            <div
+              key={stat.title}
+              className="rounded-2xl border border-(--border) bg-(--surface) p-5 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-black/5"
+            >
 
-                <p className="text-sm text-[var(--muted)]">
-                  {stat.title}
-                </p>
+              <div className="flex items-start justify-between">
 
-                <p className="mt-3 text-2xl font-bold">
-                  {stat.value}
-                </p>
+                <div>
+
+                  <p className="text-sm text-(--muted)">
+                    {stat.title}
+                  </p>
+
+                  <p className="mt-3 text-2xl font-bold">
+                    {stat.value.toLocaleString("fa-IR")}
+                  </p>
+
+                </div>
+
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-(--primary)/10 text-(--primary)">
+                  <Icon size={20} />
+                </div>
 
               </div>
 
-
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[var(--primary)]/10 text-[var(--primary)]">
-
-                <Icon size={20} />
-
+              <div className="mt-5">
+                <span className="text-xs text-(--muted)">
+                  {stat.description}
+                </span>
               </div>
 
             </div>
-
-
-            <div className="mt-5 flex items-center gap-2">
-
-              <span className="inline-flex items-center gap-1 rounded-full bg-green-500/10 px-2 py-1 text-xs font-medium text-green-500">
-
-                <ArrowUpLeft size={12} />
-
-                {stat.change}
-
-              </span>
-
-              <span className="text-xs text-[var(--muted)]">
-                {stat.description}
-              </span>
-
-            </div>
-
-          </div>
-        )
-      })}
+          )
+        })}
 
     </section>
   )
