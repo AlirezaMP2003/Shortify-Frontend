@@ -4,6 +4,12 @@ Shortify is a modern, responsive URL-shortening dashboard built with React and T
 
 > **Project status:** Frontend UI implemented and tested. Some actions currently use mock data and are intended to be connected to the Shortify FastAPI backend.
 
+## Preview
+
+![Shortify Dashboard](./src/assets/shortify-dashboard.png)
+
+![Shortify Link Management](./src/assets/shortify-links.png)
+
 ## Features
 
 - **Landing page** introducing the Shortify service
